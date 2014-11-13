@@ -6,15 +6,22 @@
 </description>
     <link>http://yourdomain.com/donakis/</link>
     <atom:link href="http://yourdomain.com/donakis/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 13 Nov 2014 20:30:54 +0100</pubDate>
-    <lastBuildDate>Thu, 13 Nov 2014 20:30:54 +0100</lastBuildDate>
+    <pubDate>Thu, 13 Nov 2014 22:56:15 +0100</pubDate>
+    <lastBuildDate>Thu, 13 Nov 2014 22:56:15 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>Jekyll Plugins and GitHub Pages</title>
-        <description>&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;I think Ghost and OpenShift is a good solution if you want to host a blog for free. But since I also wanted to test D3 diagrams I came across &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;, which is a more of a do-it-yourself kind of thing. It doesn’t support writting posts online, but that wasn’t something I needed, instead I wanted to be able to load json data from inline javascript inside of posts, work with collections, etc… The other thing was that if you wanted to use your own domain name in OpenShift there is no static IP that you can use. Since every domain must have an A record pointing to a static IP, you can only create a CNAME record with www. or a subdomain. With GitHub Pages there is some wayaround, even if it is not straight away: you can have a CNAME file at the root of your repository, containing yourdomian.com (without www), and then just create two A records with your domain provider: one with the appex @ which defaults to the root, and the other with www pointing to 192.30.252.153 and 192.30.252.154. The solution is further detailed in &lt;a href=&quot;http://stackoverflow.com/a/9123911&quot;&gt;stackoverflow&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.aymerick.com/2014/07/22/jekyll-github-pages-bower-bootstrap.html&quot;&gt;http://www.aymerick.com/&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;The problem, when hosting a Jekyll site in GitHub Pages, comes when you need to use Jekyll Plugins. But here the solutions are not very clear. In fact there are many different solutions to this problem. I will explain the one that I’ve found most usefull &lt;a href=&quot;http://www.aymerick.com/2014/07/22/jekyll-github-pages-bower-bootstrap.html&quot;&gt;Your jekyll site hosted on github pages with bower support&lt;/a&gt;, but before jumping to the solution, let’s focus on the problem.&lt;/p&gt;
+
+&lt;p&gt;Jekyll uses &lt;a href=&quot;http://www.yaml.org/&quot;&gt;YAML&lt;/a&gt; to store data. That data is retrieved by &lt;a href=&quot;http://liquidmarkup.org/&quot;&gt;Liquid&lt;/a&gt; which is the template engine runned by Jekyll to processes the files containing YAML front matter. The YAML front matter is used to declare global variables in the _config.yml file, and locally at the top of each each post or page, in blocks similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blogging&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Like&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hacker&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
@@ -39,34 +46,6 @@
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 13 Nov 2014 19:02:16 +0100</pubDate>
-        <link>http://yourdomain.com/donakis/jekyll/update/2014/11/13/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/donakis/jekyll/update/2014/11/13/welcome-to-jekyll.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
         <title>Installing Ghost on OpenShift</title>
         <description>&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;em&gt;This post is being written with the intention of keeping a personal record of the actions performed in my particular environment, meeting a set of conditions which I’m not sure I’ll be able to point out in every case. Including ruby, git and node.js version; operating system and so on. OpenShift provides plenty of documentation regarding these options which I will try to refer, and which I strongly recommend to consult before trying to perform any modification in any other particular environment.&lt;/em&gt; &lt;/p&gt;
 
@@ -78,11 +57,11 @@
 
 &lt;p&gt;Once we have verified that Ruby and Git are available in our system we can install the OpenShift gem.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rhc&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rhc&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Once the installation has completed, run:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rhc&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rhc&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setup&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/Configuring_Client_Tools.html&quot;&gt;Configuration of the Client Tools&lt;/a&gt;&lt;/p&gt;
 
@@ -93,17 +72,17 @@
 &lt;p&gt;And next our password:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Login&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;openshift.redhat.com: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email@account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:******&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nx&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:******&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;For details on this process please refer to the link above. In a summarized way I think I was asked if I wanted to generate a token, which I accepted by typing yes and pressing enter. Then the wizard outputs the path in you local system where the configuration file that contains your credentials, has been created. Then when your SSH keys have been created, you are prompted with this question which I accepted.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;must&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uploaded&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OpenShift&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;access&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Upload&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;yes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nx&quot;&gt;Upload&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;yes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;no&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And by the end of this process you are able to choose a domain.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Please&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;enter&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domain&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;letters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;|:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyDomain&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;Your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domain&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;MyDomain&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;been&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;successfully&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;created&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nx&quot;&gt;Your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;domain&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;MyDomain&amp;#39;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;been&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;successfully&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;created&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;creating-the-ghost-application&quot;&gt;Creating the Ghost application&lt;/h2&gt;
 
@@ -135,18 +114,15 @@
 
 &lt;p&gt;Then we can select and paste the credentials we need to connect to our hosting with ssh they should be something like &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh 666ddddsgytsyvus@ghost-mydomain.rhcloud.com
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;666ddddsgytsyvus&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;@ghost-mydomain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rhcloud&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In order to check the version of Node.js that our server is running we can enter&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh 666ddddsgytsyvus@ghost-mydomain.rhcloud.com node -v
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;666ddddsgytsyvus&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;@ghost-mydomain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rhcloud&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;That should output the node.js version. In my case the node.js version was 0.10.25. My local environment node.js version was verified by typing:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ npm -v
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Since I had to downgrade a version because I was running locally node v0.10.26 .I followed the next tutorial on how to install n which is an npm module for managing node.js versions. &lt;/p&gt;
 
@@ -156,47 +132,38 @@
 
 &lt;p&gt;Once I verified that my local node.js version was as well 0.10.25. I deleted my node_modules folder and typed:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ npm install --production
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;production&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;At this point I could at last run the Ghost app locally without any errors showing up:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ npm start
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then I runned:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git rm -r --cached .
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cached&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git add .
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Next&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git status
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And the node_modules folder displayed as deleted from the git directory tree.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git commit -m &#39;added my custom theme&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;added my custom theme&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;em&gt;To make sure that pushing the local repository to the public site didn’t break any of the installations I pushed a folder containing a custom theme.&lt;/em&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git push
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then I logged into my live site and was able to select the custom theme from the settings pannel without breaking anything. So the code was uploaded correctly.&lt;/p&gt;
 </description>
         <pubDate>Mon, 29 Sep 2014 04:26:00 +0200</pubDate>
-        <link>http://yourdomain.com/donakis/s/2014/09/29/Installing-Ghost-on-OpenShift.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/donakis/s/2014/09/29/Installing-Ghost-on-OpenShift.html</guid>
+        <link>http://yourdomain.com/donakis/2014/09/29/Installing-Ghost-on-OpenShift.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/donakis/2014/09/29/Installing-Ghost-on-OpenShift.html</guid>
         
-        
-        <category>s</category>
         
       </item>
     
