@@ -11,7 +11,8 @@
 ">
 
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="canonical" href="http://yourdomain.com/s/2014/09/29/Installing-Ghost-on-OpenShift.html">
+    <link rel="canonical" href="http://yourdomain.com/2014/09/29/Installing-Ghost-on-OpenShift.html">
+    <script src="/scripts/highlight.pack.js"></script>
 </head>
 
 
@@ -72,11 +73,11 @@
 
 <p>Once we have verified that Ruby and Git are available in our system we can install the OpenShift gem.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">rhc</span></code></pre></div>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">sudo</span> <span class="nx">gem</span> <span class="nx">install</span> <span class="nx">rhc</span></code></pre></div>
 
 <p>Once the installation has completed, run:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rhc</span> <span class="n">setup</span></code></pre></div>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">rhc</span> <span class="nx">setup</span></code></pre></div>
 
 <p><a href="https://access.redhat.com/documentation/en-US/OpenShift_Online/2.0/html/Client_Tools_Installation_Guide/Configuring_Client_Tools.html">Configuration of the Client Tools</a></p>
 
@@ -87,17 +88,17 @@
 <p>And next our password:</p>
 
 <div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">Login</span> <span class="k">to</span> <span class="nv">openshift.redhat.com: </span><span class="nx">email@account</span><span class="p">.</span><span class="nx">com</span>
-  <span class="nx">Password</span><span class="o">:******</span></code></pre></div>
+<span class="nx">Password</span><span class="o">:******</span></code></pre></div>
 
 <p>For details on this process please refer to the link above. In a summarized way I think I was asked if I wanted to generate a token, which I accepted by typing yes and pressing enter. Then the wizard outputs the path in you local system where the configuration file that contains your credentials, has been created. Then when your SSH keys have been created, you are prompted with this question which I accepted.</p>
 
 <div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">Your</span> <span class="nx">public</span> <span class="nx">ssh</span> <span class="nx">key</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">uploaded</span> <span class="k">to</span> <span class="nx">the</span> <span class="nx">OpenShift</span> <span class="nx">server</span> <span class="k">to</span> <span class="nx">access</span> <span class="nx">code</span><span class="p">.</span>
-  <span class="nx">Upload</span> <span class="nx">now</span><span class="o">?</span> <span class="p">(</span><span class="kc">yes</span><span class="o">|</span><span class="kc">no</span><span class="p">)</span> <span class="kc">yes</span></code></pre></div>
+<span class="nx">Upload</span> <span class="nx">now</span><span class="o">?</span> <span class="p">(</span><span class="kc">yes</span><span class="o">|</span><span class="kc">no</span><span class="p">)</span> <span class="kc">yes</span></code></pre></div>
 
 <p>And by the end of this process you are able to choose a domain.</p>
 
 <div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">Please</span> <span class="nx">enter</span> <span class="nx">a</span> <span class="nx">domain</span> <span class="p">(</span><span class="nx">letters</span> <span class="o">and</span> <span class="nx">numbers</span> <span class="nx">only</span><span class="p">)</span> <span class="o">|&lt;</span><span class="nx">none</span><span class="o">&gt;|:</span> <span class="nx">MyDomain</span>
-  <span class="nx">Your</span> <span class="nx">domain</span> <span class="nx">name</span> <span class="s">&#39;MyDomain&#39;</span> <span class="nx">has</span> <span class="nx">been</span> <span class="nx">successfully</span> <span class="nx">created</span></code></pre></div>
+<span class="nx">Your</span> <span class="nx">domain</span> <span class="nx">name</span> <span class="s">&#39;MyDomain&#39;</span> <span class="nx">has</span> <span class="nx">been</span> <span class="nx">successfully</span> <span class="nx">created</span></code></pre></div>
 
 <h2 id="creating-the-ghost-application">Creating the Ghost application</h2>
 
@@ -129,18 +130,15 @@
 
 <p>Then we can select and paste the credentials we need to connect to our hosting with ssh they should be something like </p>
 
-<pre><code>$ ssh 666ddddsgytsyvus@ghost-mydomain.rhcloud.com
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">ssh</span> <span class="mi">666ddddsgytsyvus</span><span class="nx">@ghost-mydomain</span><span class="p">.</span><span class="nx">rhcloud</span><span class="p">.</span><span class="nx">com</span></code></pre></div>
 
 <p>In order to check the version of Node.js that our server is running we can enter</p>
 
-<pre><code>$ ssh 666ddddsgytsyvus@ghost-mydomain.rhcloud.com node -v
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">ssh</span> <span class="mi">666ddddsgytsyvus</span><span class="nx">@ghost-mydomain</span><span class="p">.</span><span class="nx">rhcloud</span><span class="p">.</span><span class="nx">com</span> <span class="nx">node</span> <span class="o">-</span><span class="nx">v</span></code></pre></div>
 
 <p>That should output the node.js version. In my case the node.js version was 0.10.25. My local environment node.js version was verified by typing:</p>
 
-<pre><code>$ npm -v
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">npm</span> <span class="o">-</span><span class="nx">v</span></code></pre></div>
 
 <p>Since I had to downgrade a version because I was running locally node v0.10.26 .I followed the next tutorial on how to install n which is an npm module for managing node.js versions. </p>
 
@@ -150,38 +148,31 @@
 
 <p>Once I verified that my local node.js version was as well 0.10.25. I deleted my node_modules folder and typed:</p>
 
-<pre><code>$ npm install --production
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">production</span></code></pre></div>
 
 <p>At this point I could at last run the Ghost app locally without any errors showing up:</p>
 
-<pre><code>$ npm start
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">start</span></code></pre></div>
 
 <p>Then I runned:</p>
 
-<pre><code>$ git rm -r --cached .
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">git</span> <span class="nx">rm</span> <span class="o">-</span><span class="nx">r</span> <span class="o">--</span><span class="nx">cached</span> <span class="p">.</span></code></pre></div>
 
 <p>Then:</p>
 
-<pre><code>$ git add .
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">git</span> <span class="nx">add</span> <span class="p">.</span></code></pre></div>
 
 <p>Next</p>
 
-<pre><code>$ git status
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">git</span> <span class="nx">status</span></code></pre></div>
 
 <p>And the node_modules folder displayed as deleted from the git directory tree.</p>
 
-<pre><code>$ git commit -m 'added my custom theme'
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="s">&#39;added my custom theme&#39;</span></code></pre></div>
 
 <p><strong>Note</strong> <em>To make sure that pushing the local repository to the public site didn’t break any of the installations I pushed a folder containing a custom theme.</em></p>
 
-<pre><code>$ git push
-</code></pre>
+<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">$</span> <span class="nx">git</span> <span class="nx">push</span></code></pre></div>
 
 <p>Then I logged into my live site and was able to select the custom theme from the settings pannel without breaking anything. So the code was uploaded correctly.</p>
 
@@ -250,6 +241,22 @@
 </footer>
 
 
+  
+  <script src="/scripts/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript">
+
+  $(function() {
+
+    if($('pre').length >0 ){
+      
+      
+      hljs.initHighlightingOnLoad();
+      
+    }
+    
+  });
+
+  </script>
   </body>
 
 </html>

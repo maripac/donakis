@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="http://yourdomain.com/about/">
+    <script src="/scripts/highlight.pack.js"></script>
 </head>
 
 
@@ -132,6 +133,22 @@
 </footer>
 
 
+  
+  <script src="/scripts/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript">
+
+  $(function() {
+
+    if($('pre').length >0 ){
+      
+      
+      hljs.initHighlightingOnLoad();
+      
+    }
+    
+  });
+
+  </script>
   </body>
 
 </html>
