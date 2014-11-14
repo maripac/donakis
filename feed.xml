@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/donakis/</link>
     <atom:link href="http://yourdomain.com/donakis/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 14 Nov 2014 19:54:58 +0100</pubDate>
-    <lastBuildDate>Fri, 14 Nov 2014 19:54:58 +0100</lastBuildDate>
+    <pubDate>Fri, 14 Nov 2014 20:57:22 +0100</pubDate>
+    <lastBuildDate>Fri, 14 Nov 2014 20:57:22 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -27,11 +27,11 @@
 
 &lt;p&gt;That data is retrieved by &lt;a href=&quot;http://liquidmarkup.org/&quot;&gt;Liquid&lt;/a&gt; which is the template engine runned by Jekyll. When you add to the front matter of some content, a ‘layout’ variable and assign to it the value ‘post’, as in the example above, you are telling Liquid to render that file by mapping its content into the corresponding area of the html template that is named post.html, which is stored in the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below —they can also include a YAML front matter block at the top—.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;{ % include head.html % }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A line of code like the previous one would be read and interpreted by Liquid as a placeholder for a block of code that has to be retrieved from a file called head.html that is stored in a folder named _includes. Once the block of code has been retrieved from the corresponding source file the include directive would be removed and substituted by a regular html block. So when you run &lt;code&gt;jekyll build&lt;/code&gt; or &lt;code&gt;jekyll serve&lt;/code&gt;, Liquid creates the estatic html files depending on the parameters set in the YAML front matter block. —The difference between running either of the two previous commands is that unlike &lt;code&gt;jekyll build&lt;/code&gt; which builds the static site inside the _site folder, running &lt;code&gt;jekyll serve&lt;/code&gt; will also start a local server on port 4000. That way you can view the actual site by opening your web browser and entering localhost:4000 in the address bar.— &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Actually the syntax above is wrong, there should not be any space between the &lt;code&gt;{&lt;/code&gt; and &lt;code&gt;%&lt;/code&gt; characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;s&gt;Actually the syntax above is wrong, there should not be any space between the &lt;code&gt;{&lt;/code&gt; and &lt;code&gt;%&lt;/code&gt; characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.&lt;/s&gt;&lt;/b&gt; «— &lt;a href=&quot;http://truongtx.me/2013/01/09/display-liquid-code-in-jekyll/&quot;&gt;Display Liquid code in Jekyll&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;So when you install Jekyll and run &lt;code&gt;jekyll new myproject&lt;/code&gt;, you are installing the source files that contain all the YAML variables and Liquid templating default parameters needed to run a Jekyll site. Those files are modular, human readable, and easy to maintain, scale and migrate. But when it comes to viewing your Jekyll site in a web browser you need to generate the static site hyperlinked, but not human readable. The good part is that with Jekyll you don’t need to touch any html or css, because that is generated content. Instead you work in the source folders and each time you add changes, or want to publish a new post you generate the new static code.&lt;/p&gt;
 
