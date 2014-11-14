@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="/donakis/css/main.css">
     <link rel="canonical" href="http://yourdomain.com/donakis/about/">
+    <script src="/donakis/scripts/highlight.pack.js"></script>
 </head>
 
 
@@ -132,6 +133,22 @@
 </footer>
 
 
+  
+  <script src="/donakis/scripts/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript">
+
+  $(function() {
+
+    if($('pre').length >0 ){
+      
+      
+      hljs.initHighlightingOnLoad();
+      
+    }
+    
+  });
+
+  </script>
   </body>
 
 </html>
