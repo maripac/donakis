@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/donakis/</link>
     <atom:link href="http://yourdomain.com/donakis/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 14 Nov 2014 20:57:22 +0100</pubDate>
-    <lastBuildDate>Fri, 14 Nov 2014 20:57:22 +0100</lastBuildDate>
+    <pubDate>Sat, 15 Nov 2014 06:30:21 +0100</pubDate>
+    <lastBuildDate>Sat, 15 Nov 2014 06:30:21 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -131,7 +131,11 @@ $ git commit -m &#39;generated static site-prod&#39;
 $ git push
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;At this point you can view your site from the browser at the corresponding url.&lt;/p&gt;
+&lt;p&gt;At this point you can view your site from the browser at the corresponding url. &lt;/p&gt;
+
+&lt;h3 id=&quot;the-workflow&quot;&gt;The Workflow&lt;/h3&gt;
+
+&lt;p&gt;From this point it is very easy to engage with some kind of structured workflow. Maybe taking a look at the distribution of branches can help. If you enter &lt;code&gt;git branch&lt;/code&gt; git will output the current branch you’re at. Whenever you move to the root folder you’ll be working in the master branch, and if you cd to the _site folder you’ll be working in the gh-pages branch, in the same way cd’ing to the _site-prod would return the prod-pages branch. So instead of jumping from branch to branch you can just move to the corresponding directory to add, commit, and push to the remote site. &lt;/p&gt;
 
 </description>
         <pubDate>Thu, 13 Nov 2014 20:21:16 +0100</pubDate>

@@ -10,7 +10,8 @@
     <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-    <link rel="stylesheet" href="/donakis/css/main.css">
+    <link rel="shortcut icon" href="/donakis/favicon.ico"/>
+    <link rel="stylesheet" href="/donakis/css/style.css">
     <link rel="canonical" href="http://yourdomain.com/donakis/2014/11/13/jekyll-plugins-and-gh-pages.html">
     <script src="/donakis/scripts/highlight.pack.js"></script>
 </head>
@@ -33,6 +34,7 @@
         </svg>
       </a>
 
+
       <div class="trigger">
         
           
@@ -45,7 +47,10 @@
         
           
         
+          
+        
       </div>
+
     </nav>
 
   </div>
@@ -182,7 +187,11 @@ $ git commit -m 'generated static site-prod'
 $ git push
 </code></pre>
 
-<p>At this point you can view your site from the browser at the corresponding url.</p>
+<p>At this point you can view your site from the browser at the corresponding url. </p>
+
+<h3 id="the-workflow">The Workflow</h3>
+
+<p>From this point it is very easy to engage with some kind of structured workflow. Maybe taking a look at the distribution of branches can help. If you enter <code>git branch</code> git will output the current branch you’re at. Whenever you move to the root folder you’ll be working in the master branch, and if you cd to the _site folder you’ll be working in the gh-pages branch, in the same way cd’ing to the _site-prod would return the prod-pages branch. So instead of jumping from branch to branch you can just move to the corresponding directory to add, commit, and push to the remote site. </p>
 
 
   </article>

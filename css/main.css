@@ -143,6 +143,49 @@ pre {
     fill: #828282; }
 
 /**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+.highlight {
+  margin-bottom: 15px; }
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  background-color: #eef; }
+
+code {
+  padding: 1px 5px; }
+
+pre {
+  padding: 8px 12px;
+  overflow-x: scroll; }
+  pre > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0; }
+
+/**
  * Site header
  */
 .site-header {
@@ -447,3 +490,39 @@ pre {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+@font-face {
+  font-family: "rockwell-extra-bold";
+  src: url("../fonts/rockwell-extra-bold.eot");
+  src: url("../fonts/rockwell-extra-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/rockwell-extra-bold.woff") format("woff"), url("../fonts/rockwell-extra-bold.ttf") format("truetype"), url("../fonts/rockwell-extra-bold.svg#rockwell-extra-bold") format("svg"); }
+@font-face {
+  font-family: "rockwell-webfont";
+  src: url("../fonts/rockwell-webfont.eot");
+  src: url("../fonts/rockwell-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/rockwell-webfont.woff") format("woff"), url("../fonts/rockwell-webfont.ttf") format("truetype"), url("../fonts/rockwell-webfont.svg#rockwell-webfont") format("svg"); }
+@font-face {
+  font-family: "altehaasgroteskregular-webfont";
+  src: url("../fonts/altehaasgroteskregular-webfont.eot");
+  src: url("../fonts/altehaasgroteskregular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/altehaasgroteskregular-webfont.woff") format("woff"), url("../fonts/altehaasgroteskregular-webfont.ttf") format("truetype"), url("../fonts/altehaasgroteskregular-webfont.svg#altehaasgroteskregular-webfont") format("svg"); }
+h1 {
+  font-family: "rockwell-webfont";
+  font-weight: 300;
+  letter-spacing: normal; }
+
+a.site-title {
+  font-family: "altehaasgroteskregular-webfont";
+  font-weight: 300;
+  letter-spacing: normal;
+  color: #ddd; }
+  a.site-title:visited {
+    color: #ddd; }
+
+.site-nav .page-link {
+  font-family: "altehaasgroteskregular-webfont";
+  font-size: 1.125em;
+  font-weight: 300;
+  color: #ddd; }
+  .site-nav .page-link:visited {
+    color: #ddd; }
+
+.site-header {
+  background-color: #333; }
