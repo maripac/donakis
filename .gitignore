@@ -1,3 +1,6 @@
 _site
 _site-prod
 .sass-cache
+_sass/bourbon
+_sass/neat
+_sass/base

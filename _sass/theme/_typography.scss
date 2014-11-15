@@ -1,0 +1,130 @@
+$font-reb: 'rockwell-extra-bold';
+$style-name-reb: rockwell-extra-bold;
+$file-reb: 'rockwell-extra-bold';
+$category-reb: serif;
+
+$font-rw: 'rockwell-webfont';
+$style-name-rw: rockwell-webfont;
+$file-rw: 'rockwell-webfont';
+$category-rw: serif;
+
+$font-ar: 'altehaasgroteskregular-webfont';
+$style-name-ar: 'altehaasgroteskregular-webfont';
+$file-ar: 'altehaasgroteskregular-webfont';
+$category-ar: sans-serif;
+
+@mixin font-face($style-name, $file, $category:"") {
+    $filepath: "../fonts/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }
+}
+@include font-face($style-name-reb, $file-reb, $category-reb);
+@include font-face($style-name-rw, $file-rw, $category-rw);
+
+@include font-face($style-name-ar, $file-ar, $category-ar);
+
+html{font-size: 100%;}
+body{
+    font-size: 1.125em; //18px
+    line-height:1.55556em; //28px
+}
+
+h1{
+
+     font-family: $font-rw;
+     font-weight: 300;
+     letter-spacing: normal;
+}
+a{
+    &.site-title{
+     font-family: $font-ar;
+     //font-family: $font-rw;
+     font-weight: 300;
+     letter-spacing: normal;
+     color: #ddd;
+         &:visited{
+            color: #ddd;
+         }
+
+    }
+
+}
+.site-nav{
+    .page-link{
+    font-family: $font-ar;
+    font-size: 1.125em;
+    font-weight: 300;
+    color: #ddd;
+        &:visited{
+        color: #ddd;
+        }   
+    }
+}
+.site-nav .menu-icon {
+padding-top: 6px;
+}
+.site-header{
+    background-color: #333;
+}
+
+.page-content{
+    @include span-columns(10);
+    @include shift(1);
+}
+footer{
+
+    @include span-columns(10);
+    @include shift(1);
+
+}
+.site-header{
+    .wrapper{
+    @include span-columns(10);
+    @include shift(1);
+
+    }
+}
+
+span{
+    &.icon{
+        &.icon--github{
+            svg{
+
+            max-width:20px;
+            margin-top:0.25em;
+
+            }
+        }
+         &.icon--twitter{
+            svg{
+
+            max-width:20px;
+            margin-top:0.25em;
+
+            }
+        }
+    }
+}
+span{
+    &.username{
+        top:-6px;
+        position:relative;
+    }
+}
+.page-heading {
+    font-size: 2.25em;
+}

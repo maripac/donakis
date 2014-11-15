@@ -22,13 +22,14 @@ title: Blogging Like a Hacker
 
 That data is retrieved by [Liquid](http://liquidmarkup.org/) which is the template engine runned by Jekyll. When you add to the front matter of some content, a 'layout' variable and assign to it the value 'post', as in the example above, you are telling Liquid to render that file by mapping its content into the corresponding area of the html template that is named post.html, which is stored in the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below &mdash;they can also include a YAML front matter block at the top&mdash;.
 
-{% highlight liquid %}
-{ % include head.html % }
+{% highlight ruby %}
+{{ "{% include head.html "}}%}
 {% endhighlight %}
 
 A line of code like the previous one would be read and interpreted by Liquid as a placeholder for a block of code that has to be retrieved from a file called head.html that is stored in a folder named _includes. Once the block of code has been retrieved from the corresponding source file the include directive would be removed and substituted by a regular html block. So when you run `jekyll build` or `jekyll serve`, Liquid creates the estatic html files depending on the parameters set in the YAML front matter block. &mdash;The difference between running either of the two previous commands is that unlike `jekyll build` which builds the static site inside the _site folder, running `jekyll serve` will also start a local server on port 4000. That way you can view the actual site by opening your web browser and entering localhost:4000 in the address bar.&mdash; 
 
-**Actually the syntax above is wrong, there should not be any space between the `{` and `%` characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.**
+<b><s>Actually the syntax above is wrong, there should not be any space between the <code>{</code> and <code>%</code> characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.</s></b> <<&mdash; [Display Liquid code in Jekyll](http://truongtx.me/2013/01/09/display-liquid-code-in-jekyll/) 
+
 
 So when you install Jekyll and run `jekyll new myproject`, you are installing the source files that contain all the YAML variables and Liquid templating default parameters needed to run a Jekyll site. Those files are modular, human readable, and easy to maintain, scale and migrate. But when it comes to viewing your Jekyll site in a web browser you need to generate the static site hyperlinked, but not human readable. The good part is that with Jekyll you don't need to touch any html or css, because that is generated content. Instead you work in the source folders and each time you add changes, or want to publish a new post you generate the new static code.
 
@@ -121,7 +122,11 @@ Open again the _config.yml, remove the subdirectory name previously added to the
     $ git commit -m 'generated static site-prod'
     $ git push
 
-At this point you can view your site from the browser at the corresponding url.
+At this point you can view your site from the browser at the corresponding url. 
+
+###The Workflow
+
+From this point it is very easy to engage with some kind of structured workflow. Maybe taking a look at the distribution of branches can help. If you enter `git branch` git will output the current branch you're at. Whenever you move to the root folder you'll be working in the master branch, and if you cd to the _site folder you'll be working in the gh-pages branch, in the same way cd'ing to the _site-prod would return the prod-pages branch. So instead of jumping from branch to branch you can just move to the corresponding directory to add, commit, and push to the remote site. 
 
 
 
