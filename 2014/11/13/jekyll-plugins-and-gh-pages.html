@@ -10,6 +10,7 @@
     <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="http://yourdomain.com/2014/11/13/jekyll-plugins-and-gh-pages.html">
     <script src="/scripts/highlight.pack.js"></script>
@@ -63,9 +64,11 @@
   </header>
 
   <article class="post-content">
-    <p>I think Ghost and OpenShift is a good solution if you want to host a blog for free. But since I also wanted to test D3 diagrams I came across <a href="http://jekyllrb.com">Jekyll</a>, which is a more of a do-it-yourself kind of thing. It doesn’t support writting posts online, but that wasn’t something I needed, instead I wanted to be able to load json data from inline javascript inside of posts, work with collections, etc… The other thing was that if you wanted to use your own domain name in OpenShift there is no static IP that you can use. Since every domain must have an A record pointing to a static IP, you can only create a CNAME record with www. or a subdomain. With GitHub Pages there is some wayaround, even if it is not straight away: you can have a CNAME file at the root of your repository, containing yourdomian.com (without www), and then just create two A records with your domain provider: one with the appex @ which defaults to the root, and the other with www pointing to 192.30.252.153 and 192.30.252.154. The solution is further detailed in <a href="http://stackoverflow.com/a/9123911">stackoverflow</a>.</p>
+    <p>I think Ghost and OpenShift combine to make a good solution for a blogging platform. But since I also wanted to test D3 diagrams I came across <a href="http://jekyllrb.com">Jekyll</a>, which is a more of a do-it-yourself kind of thing. It doesn’t support writting posts online, but that wasn’t something I needed, instead I wanted to be able to load json data from inline javascript inside of posts, work with collections, etc… There was also another inconvenience when using your own domain with an OpenShift application because you are not provided with a static IP, over to which you can point an A record in order for your domain to be resolved to the OpenShift application. Then you are forced to create a CNAME record with the appex www or either use a subdomain. With GitHub Pages there is some way around, even if it is not straight away: you can have a CNAME file at the root of your repository, containing yourdomian.com (without www), and then just create two A records with your domain provider: one with the appex @ which defaults to the root, and the other with www pointing to 192.30.252.153 and 192.30.252.154. The solution is further detailed in <a href="http://stackoverflow.com/a/9123911">stackoverflow</a>.</p>
 
-<p>The only problem, when hosting a Jekyll site in GitHub Pages, has to do with the use of Jekyll plugins. But here the solutions are not very clear. In fact there are many different solutions to this problem. I will explain the one that I’ve found most usefull which was found reading <a href="http://www.aymerick.com/2014/07/22/jekyll-github-pages-bower-bootstrap.html">Your jekyll site hosted on github pages with bower support</a>, but before jumping to the solution, maybe understanding the problem will help.</p>
+<p>The only problem, when hosting a Jekyll site in GitHub Pages, has to do with the use of Jekyll plugins. But here the solutions are not very clear. In fact there are many different solutions to this problem. I will explain the one that I’ve found most usefull which was found reading <a href="http://www.aymerick.com/2014/07/22/jekyll-github-pages-bower-bootstrap.html">Your jekyll site hosted on github pages with bower support</a>, but before jumping to the solution, maybe understanding the problem will help. Still if you prefer, you can jump straight to the <a href="#solution">solution</a>. </p>
+
+<h3 id="some-jekyll-notions">Some Jekyll notions</h3>
 
 <p>Jekyll uses <a href="http://www.yaml.org/">YAML</a> to store its data. The YAML front matter is used in Jekyll to declare global variables in the _config.yml file, and locally at the top of each each post or page, in blocks similar to the one below:</p>
 
@@ -74,21 +77,113 @@
 <span class="nv">title: </span><span class="nx">Blogging</span> <span class="nx">Like</span> <span class="nx">a</span> <span class="nx">Hacker</span>
 <span class="o">---</span></code></pre></div>
 
-<p>That data is retrieved by <a href="http://liquidmarkup.org/">Liquid</a> which is the template engine runned by Jekyll. When you add to the front matter of some content, a ‘layout’ variable and assign to it the value ‘post’, as in the example above, you are telling Liquid to render the content after the YAML front matter block with the file called post.html that is found inside the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below —they can also include a YAML front matter block at the top—.</p>
+<p>That data is retrieved by <a href="http://liquidmarkup.org/">Liquid</a> which is the template engine runned by Jekyll. When you add to the front matter of some content, a ‘layout’ variable and assign to it the value ‘post’, as in the example above, you are telling Liquid to render that file by mapping its content into the corresponding area of the html template that is named post.html, which is stored in the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below —they can also include a YAML front matter block at the top—.</p>
 
-<div class="highlight"><pre><code class="language-liquid" data-lang="liquid">{ % include head.html % }</code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">head</span><span class="o">.</span><span class="n">html</span> <span class="o">%</span><span class="p">}</span></code></pre></div>
 
-<p>A line of code like the previous one would be read and interpreted by Liquid as a placeholder for a block of code that has to be retrieved from a file called head.html that is stored in a folder named _includes. Once the block of code has been retrieved from the corresponding source file the include directive would be removed and substituted by a regular html block. So when you run <code>jekyll build</code> or <code>jekyll serve</code>, Liquid creates the estatic html files depending on the parameters set in the YAML front matter block. —The difference between running either of the two previous commands is that unlike <code>jekyll build</code> which builds the static site inside the _site folder, running <code>jekyll serve</code> will also start a local server in port 4000. That way you can view the actual site by opening your web browser and entering localhost:4000 in the address bar.— </p>
+<p>A line of code like the previous one would be read and interpreted by Liquid as a placeholder for a block of code that has to be retrieved from a file called head.html that is stored in a folder named _includes. Once the block of code has been retrieved from the corresponding source file the include directive would be removed and substituted by a regular html block. So when you run <code>jekyll build</code> or <code>jekyll serve</code>, Liquid creates the estatic html files depending on the parameters set in the YAML front matter block. —The difference between running either of the two previous commands is that unlike <code>jekyll build</code> which builds the static site inside the _site folder, running <code>jekyll serve</code> will also start a local server on port 4000. That way you can view the actual site by opening your web browser and entering localhost:4000 in the address bar.— </p>
 
-<p><strong>Actually the syntax above is wrong, there should not be any space between the <code>{</code> and <code>%</code> characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.</strong></p>
+<p><b><s>Actually the syntax above is wrong, there should not be any space between the <code>{</code> and <code>%</code> characters but if I used the right syntax it would render the html block of code. So that is something to note as well, because you can also use Liquid directives inside the markdown of a post.</s></b> «— <a href="http://truongtx.me/2013/01/09/display-liquid-code-in-jekyll/">Display Liquid code in Jekyll</a> </p>
 
 <p>So when you install Jekyll and run <code>jekyll new myproject</code>, you are installing the source files that contain all the YAML variables and Liquid templating default parameters needed to run a Jekyll site. Those files are modular, human readable, and easy to maintain, scale and migrate. But when it comes to viewing your Jekyll site in a web browser you need to generate the static site hyperlinked, but not human readable. The good part is that with Jekyll you don’t need to touch any html or css, because that is generated content. Instead you work in the source folders and each time you add changes, or want to publish a new post you generate the new static code.</p>
 
-<p>If you wanted to host your Jekyll site in an environment that would allow you to <code>jekyll buil</code> your site and serve the generated static files from a webserver, you would need a file system running a compatible Ruby installation where you could ssh, edit the source files and then run <code>jekyll build</code>. Otherwise, you could host the Jekyll source files in your local system, create new posts locally, build the site locally and the upload them to the webserver. </p>
+<h3 id="deploying-jekyll-to-a-webserver">Deploying Jekyll to a webserver</h3>
 
-<p>In the second case, you’d be tied to a certain computer in order to publish new posts. The first case is a bit resource consuming, and a bit of a rare thing to have to edit your posts with nano or vim. Either way would be quite unsafe, and probably a good advice in any case to track your Jekyll installation with a version management system syncronized with a public repository. </p>
+<p>If you wanted to host your Jekyll site in an environment that would allow you to <code>jekyll buil</code> your site and serve the generated static files from a webserver, you would need a file system running a compatible Ruby installation where you could ssh, edit the source files and then run <code>jekyll build</code>. Otherwise, you could host the Jekyll source files in your local system, create new posts locally, build the site locally and finally upload them to the webserver. </p>
 
-<p>At this point is when GitHub Pages comes as a great candidate for a hosting solution. Moreover when you find out that GitHub Pages runs Jekyll and can even <code>jekyll build</code> your site. Well, to be more precise when GitHub deploys your site to run in the GitHub Pages hosting service that they provide for free the Jekyll engine is runned in safe mode, as in <code>jekyll build --safe</code> where the <code>--safe</code> flag prevents any arbitrary code from being runned at build time. So when using Jekyll plugins, and since the code contained inside the _plugins folder is custom code and not part of the official Jekyll repository, it will not be allowed to run when your site is being built, so it won’t work.     </p>
+<p>In the second case, you’d be tied to a certain computer in order to publish new posts. The first case is a bit resource consuming, and a bit of a rare thing to have to edit your posts with nano or vim. Either way would be quite unsafe, and probably a good advice in any case to track your Jekyll installation with a version management system synchronized with a public repository. </p>
+
+<h3 id="jekyll-with-github-pages">Jekyll with GitHub Pages</h3>
+
+<p>At this point GitHub Pages comes as a great candidate for a hosting solution. Moreover when you find out that GitHub Pages runs Jekyll and can even <code>jekyll build</code> your site. Well, to be more precise when GitHub deploys your site to run in the GitHub Pages hosting service that they provide for free, the Jekyll engine is runned in safe mode, as in <code>jekyll build --safe</code> where the <code>--safe</code> flag prevents any arbitrary code from being runned at build time. So when using Jekyll plugins, and since the code contained inside the _plugins folder is custom code and not part of the official Jekyll repository, it will not be allowed to run when your site is being built, so it won’t work. </p>
+
+<p>So far, I think the problem has been laid out. The way around consists in preventing the Jekyll engine at GitHub from building your site, this means that you first build the static files locally and push them over to the gh-pages branch of your repository, excluding from that branch any other Jekyll source files. If GitHub found any of the files that are needed by Jekyll to build your site, and that means files containing Liquid syntax or YAML front matter, it would understand that it needs to run <code>jekyll build --safe</code> in order for your repository to be served from the GitHub Pages webserver. That way the code living in the _plugins directory will not be runned at build time, so your site will be accesible from the url you’ve been assigned by GitHub Pages, but the plugins will not work. </p>
+
+<h3 id="two-ways-to-host-content-on-github-pages">Two ways to host content on GitHub Pages</h3>
+
+<p>There are two ways in which you can take advantage of the GitHub Pages service. You can check the reference <a href="https://help.github.com/articles/user-organization-and-project-pages/">here</a>. One of them allows users or groups to host one website per user/group, in that case the site would be accesible from the url http://username.github.io/
+. The other way allows you to host as many websites as repositories you have with GitHub, but those websites would be published and accesed from the url http://username.github.io/nameofrepository/, unless you configure a custom domain. The first case will not work with the solution that will be explained in more detail. This option requires the name of the repository to match the url that GitHub Pages will assign to your user/organization, as in username.github.io. Which means that the files that GitHub will publish to GitHub Pages will be the ones that are tracked by the master branch. This is not the case when dealing with project pages, since you cannot name all the repositories username.github.io. So the way in which GitHub has automated the request to make use of the GitHub Pages service, requires you to add a branch to your repository and identify that branch under the name gh-pages. This second option allows you to track the source files in the master branch, which is a more rational approach and serve to GitHub the generated static files from the gh-pages branch. </p>
+
+<p>Otherwise, if you are still bound to the first option you can check out <a href="https://www.npmjs.org/package/jekyll-tools">jekyll-tools</a> which can be installed as a Node.js module. This tool allows you to build your site normally inside the master branch, then initialize a second one from the master one <code>$ git branch src</code>, move to the second one, <code>$ git checkout src</code> and run <code>$ jek deploy</code> which leaves the master branch free from any files containing Jekyll code. I haven’t tested this approach enough so I cannot cover in much detail how to proceed in order to integrate it inside a git workflow.
+<a name="solution"></a></p>
+
+<h3 id="the-way-ive-managed-to-setup">The way I’ve managed to setup.</h3>
+
+<p>The option that I’ve been able to implement is the second one, that allowes me to host a website per repository. I’ve complicated things a bit further in order to be able to generate two estatic sites. One to be hosted in GitHub pages that would serve as a testing/staging environment allowing me to experiment with the implementation of new features, and a second static site configured to live in another host. That way, I can ssh into my vps and clone the third branch with: <code>$ git clone -b third-branch-name https://github.com/username/myrepository.git html</code>.</p>
+
+<h4 id="requirements">Requirements:</h4>
+<p>The following steps work from a newly created Jekyll installation, or from a Jekyll installation that doesn’t yet have an initialized local git repository. If you haven’t yet runned <code>git init</code> from the root of your repository, you can just delete the _site folder and follow along. If otherwise you are already tracking with git your Jekyll site, I’m not much of a git expert, but in my world of unexpected calamities, I think that instead of deleting the whole .git directory tree, a better solution could be to create a new Jekyll installation. Once you have set up the new project with its own local git index, and synchronized it to a GitHub repository with the following configuration of branches, you can move the source files from the original Jekyll project over to the new one and regenerate your site. </p>
+
+<p>I understand that you have already installed the jekyll ruby gem, if so open a terminal window, cd to the directory where you usually store your local projects and initialize a new jekyll site with:</p>
+
+<pre><code>$ jekyll new mysitename
+</code></pre>
+
+<p>To complete the next section you need a fresh new empty GitHub repository. You can create one following the steps indicated <a href="https://help.github.com/articles/creating-a-new-repository/">here</a> up to the sixth point, remember not to add yet a .gitignore file, as suggested in the fifth step. Once you have completed the previous steps you’ll be provided with a ssh or https link that you will need in order to add to your local repository the newly created public one at GitHub as its remote origin. Copy the https or ssh link to your clipboard and back at the terminal go over the next section. It is important that you go over the following steps before running <code>jekyll build</code> or <code>jekyll serve</code> at all, so I understand that there is no _site folder yet living inside your local files.</p>
+
+<pre><code>$ git init
+$ git add .
+$ git commit -m "Jekyll source files" 
+$ git remote add origin git@github.com:username/repositoryname.git
+$ git push -u origin master
+</code></pre>
+
+<p>The following section initializes a new orphan branch, which is a branch that doesn’t share the history with the master branch, then removes from the new branch the entire git directory tree. Since the branch is left tracking no content at all, —you still haven’t <code>jekyll build</code> the static files— the second part goes over the creation of an index.html file that will work as a placeholder that you can add to your staging area, then commit and finally push. Note here, that instead of pushing it to the master branch, you push to a gh-pages branch.</p>
+
+<pre><code>$ git checkout --orphan gh-pages
+$ git reset .
+$ rm -r *
+$ rm .gitignore
+$ echo 'Coming soon' &gt; index.html
+$ git add index.html
+$ git commit -m "init gh-pages"
+$ git push -u origin gh-pages
+</code></pre>
+
+<p>I repeated this block after going back to the master branch. But this time I initialized a branch called prod-pages, because in my case I wanted to be able to generate two different static sites.</p>
+
+<pre><code>$ git checkout master
+$ git checkout --orphan prod-pages
+$ git reset .
+$ rm -r *
+$ rm .gitignore
+$ echo 'Coming soon' &gt; index.html
+$ git add index.html
+$ git commit -m "init prod-pages"
+$ git push -u origin prod-pages
+</code></pre>
+
+<p>Since those branches are now live at your GitHub public repository, you can go back to the master branch and map each of them to a folder, just by running a git clone directive with the -b branch-name and the indication of the folder where the clone will copy the files. I mapped the gh-pages clone to crete a _site folder, which is the default folder where Jekyll would build your static files as long as you don’t indicate a different destination for your site when running the build command. And the second clone mapped the prod-pages branch to a folder named _site-prod.</p>
+
+<pre><code>$ git checkout master
+$ git -b gh-pages clone git@github.com:username/repositoryname.git _site
+$ git -b prod-pages clone git@github.com:username/repositoryname.git _site-prod
+</code></pre>
+
+<p>Now you can open your .gitignore file. It should already include the _site folder, add a new line that excludes also the _site-prod folder. After adding the folder to the .gitignore directives, you can finally build your site, but for the static files that you want to access from the url that GitHub provides for project pages, you should add in the _config.yml file inside the baseurl variable, the subdirectory part of url where your project will be accesible once uploaded to GitHub Pages. So it shoul look like this <code>baseurl: "/repositorname"</code>. Now you can finally build the static files, and push them to the live GitHub repository.</p>
+
+<pre><code>$ jekyll build
+$ cd _site
+$ git add .
+$ git commit -m 'generated static files'
+$ git push
+</code></pre>
+
+<p>Go back to the root. </p>
+
+<pre><code>$ cd ..
+</code></pre>
+
+<p>Open again the _config.yml, remove the subdirectory name previously added to the baseurl, safe the file and repeat the previous steps as follows:</p>
+
+<pre><code>$ jekyll build --destination _site-prod
+$ cd _site-prod
+$ git add .
+$ git commit -m 'generated static site-prod'
+$ git push
+</code></pre>
+
+<p>At this point you can view your site from the browser at the corresponding url.</p>
 
 
   </article>
