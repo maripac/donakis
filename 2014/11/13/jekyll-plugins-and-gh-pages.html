@@ -11,8 +11,9 @@
 ">
 
     <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="/css/style.css">
+    <!--<link rel="stylesheet" href="/css/style.css">-->
     <!--<link rel="stylesheet" href="/css/collapse.css">-->
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="canonical" href="http://yourdomain.com/2014/11/13/jekyll-plugins-and-gh-pages.html">
 
     <script src="/scripts/highlight.pack.js"></script>
@@ -22,11 +23,11 @@
 
   <body>
 
-      <div id="outer-wrap">
-        <div id="inner-wrap">
+    <div id="outer-wrap">
+      <div id="inner-wrap">
 
 
-        <header class="site-header" id="top" role="banner">
+      <header class="site-header" id="top" role="banner">
 
 
   <div class="block">
@@ -265,15 +266,13 @@
 
 </div>
 
-              </div>
-            </div>
+              </div><!--//.wrapper-->
+            </div><!--//.page-content-->
 
-          </article>
-        </div>
+          </article><!--//.article-->
+        </div> <!--//#main-->
 
-        <!--</diV>-->
-
-        <footer class="site-footer">
+      <footer class="site-footer">
     <div class="block">
 
   <div class="wrapper">
@@ -281,7 +280,7 @@
     <!--<h2 class="footer-heading">Your awesome title</h2>-->
 
     <div class="footer-col-wrapper">
-      <h2 class="footer-heading">Your awesome title</h2>
+      
       <div class="footer-col  footer-col-1">
         <ul class="contact-list">
           <li>Your awesome title</li>
@@ -334,26 +333,17 @@
 </footer>
 
 
-        </div>
-      </div>
+      </div><!--//#inner-->
+    </div><!--//#outer-->
 
-  
-  <script src="/scripts/jquery.min.js"></script>
-  <script language="javascript" type="text/javascript">
-
-   $(function() {
-
-     if($('pre').length >0 ){
-      
-      
-       hljs.initHighlightingOnLoad();
-      
-     }
-    
-  });
-
-  </script>
-  <script src="/scripts/main.js"></script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+      $(function() {
+        if($('pre').length >0 ){
+          hljs.initHighlightingOnLoad();
+        }
+      });
+    </script>
+    <script src="/scripts/main.js"></script>
   </body>
-
 </html>
