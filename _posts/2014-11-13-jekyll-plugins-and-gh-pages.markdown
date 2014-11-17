@@ -13,7 +13,7 @@ The only problem, when hosting a Jekyll site in GitHub Pages, has to do with the
 
 Jekyll uses [YAML](http://www.yaml.org/) to store its data. The YAML front matter is used in Jekyll to declare global variables in the _config.yml file, and locally at the top of each each post or page, in blocks similar to the one below:
 
-{% highlight livescript %}
+{% highlight yaml %}
 ---
 layout: post
 title: Blogging Like a Hacker
@@ -22,7 +22,7 @@ title: Blogging Like a Hacker
 
 That data is retrieved by [Liquid](http://liquidmarkup.org/) which is the template engine runned by Jekyll. When you add to the front matter of some content, a 'layout' variable and assign to it the value 'post', as in the example above, you are telling Liquid to render that file by mapping its content into the corresponding area of the html template that is named post.html, which is stored in the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below &mdash;they can also include a YAML front matter block at the top&mdash;.
 
-{% highlight ruby %}
+{% highlight liquid %}
 {{ "{% include head.html "}}%}
 {% endhighlight %}
 
@@ -62,65 +62,80 @@ The following steps work from a newly created Jekyll installation, or from a Jek
 
 I understand that you have already installed the jekyll ruby gem, if so open a terminal window, cd to the directory where you usually store your local projects and initialize a new jekyll site with:
 
-    $ jekyll new mysitename
-
+{% highlight livescript %}
+$ jekyll new mysitename
+{% endhighlight %}
 
 To complete the next section you need a fresh new empty GitHub repository. You can create one following the steps indicated [here](https://help.github.com/articles/creating-a-new-repository/) up to the sixth point, remember not to add yet a .gitignore file, as suggested in the fifth step. Once you have completed the previous steps you'll be provided with a ssh or https link that you will need in order to add to your local repository the newly created public one at GitHub as its remote origin. Copy the https or ssh link to your clipboard and back at the terminal go over the next section. It is important that you go over the following steps before running `jekyll build` or `jekyll serve` at all, so I understand that there is no _site folder yet living inside your local files.
 
-    $ git init
-    $ git add .
-    $ git commit -m "Jekyll source files" 
-    $ git remote add origin git@github.com:username/repositoryname.git
-    $ git push -u origin master
+{% highlight livescript %}
+$ git init
+$ git add .
+$ git commit -m "Jekyll source files" 
+$ git remote add origin git@github.com:username/repositoryname.git
+$ git push -u origin master
+{% endhighlight %}   
 
 The following section initializes a new orphan branch, which is a branch that doesn't share the history with the master branch, then removes from the new branch the entire git directory tree. Since the branch is left tracking no content at all, &mdash;you still haven't `jekyll build` the static files&mdash; the second part goes over the creation of an index.html file that will work as a placeholder that you can add to your staging area, then commit and finally push. Note here, that instead of pushing it to the master branch, you push to a gh-pages branch.
 
-    $ git checkout --orphan gh-pages
-    $ git reset .
-    $ rm -r *
-    $ rm .gitignore
-    $ echo 'Coming soon' > index.html
-    $ git add index.html
-    $ git commit -m "init gh-pages"
-    $ git push -u origin gh-pages
+{% highlight livescript %}
+$ git checkout --orphan gh-pages
+$ git reset .
+$ rm -r *
+$ rm .gitignore
+$ echo 'Coming soon' > index.html
+$ git add index.html
+$ git commit -m "init gh-pages"
+$ git push -u origin gh-pages
+{% endhighlight %} 
 
 I repeated this block after going back to the master branch. But this time I initialized a branch called prod-pages, because in my case I wanted to be able to generate two different static sites.
 
-	$ git checkout master
-    $ git checkout --orphan prod-pages
-    $ git reset .
-    $ rm -r *
-    $ rm .gitignore
-    $ echo 'Coming soon' > index.html
-    $ git add index.html
-    $ git commit -m "init prod-pages"
-    $ git push -u origin prod-pages
+{% highlight livescript %}
+$ git checkout master
+$ git checkout --orphan prod-pages
+$ git reset .
+$ rm -r *
+$ rm .gitignore
+$ echo 'Coming soon' > index.html
+$ git add index.html
+$ git commit -m "init prod-pages"
+$ git push -u origin prod-pages
+{% endhighlight %} 
 
 Since those branches are now live at your GitHub public repository, you can go back to the master branch and map each of them to a folder, just by running a git clone directive with the -b branch-name and the indication of the folder where the clone will copy the files. I mapped the gh-pages clone to crete a _site folder, which is the default folder where Jekyll would build your static files as long as you don't indicate a different destination for your site when running the build command. And the second clone mapped the prod-pages branch to a folder named _site-prod.
 
-    $ git checkout master
-    $ git -b gh-pages clone git@github.com:username/repositoryname.git _site
-    $ git -b prod-pages clone git@github.com:username/repositoryname.git _site-prod
+{% highlight livescript %}
+$ git checkout master
+$ git -b gh-pages clone git@github.com:username/repositoryname.git _site
+$ git -b prod-pages clone git@github.com:username/repositoryname.git _site-prod
+{% endhighlight %} 
 
 Now you can open your .gitignore file. It should already include the _site folder, add a new line that excludes also the _site-prod folder. After adding the folder to the .gitignore directives, you can finally build your site, but for the static files that you want to access from the url that GitHub provides for project pages, you should add in the _config.yml file inside the baseurl variable, the subdirectory part of url where your project will be accesible once uploaded to GitHub Pages. So it shoul look like this `baseurl: "/repositorname"`. Now you can finally build the static files, and push them to the live GitHub repository.
 
-    $ jekyll build
-    $ cd _site
-    $ git add .
-    $ git commit -m 'generated static files'
-    $ git push
+{% highlight livescript %}
+$ jekyll build
+$ cd _site
+$ git add .
+$ git commit -m 'generated static files'
+$ git push
+{% endhighlight %} 
 
-Go back to the root. 
+Go back to the root.
 
-    $ cd ..
+{% highlight livescript %}
+$ cd ..
+{% endhighlight %} 
 
 Open again the _config.yml, remove the subdirectory name previously added to the baseurl, safe the file and repeat the previous steps as follows:
 
-    $ jekyll build --destination _site-prod
-    $ cd _site-prod
-    $ git add .
-    $ git commit -m 'generated static site-prod'
-    $ git push
+{% highlight livescript %}
+$ jekyll build --destination _site-prod
+$ cd _site-prod
+$ git add .
+$ git commit -m 'generated static site-prod'
+$ git push
+{% endhighlight %}
 
 At this point you can view your site from the browser at the corresponding url. 
 

@@ -5,32 +5,48 @@
 
   <body>
 
-    {% include header.html %}
+      <div id="outer-wrap">
+        <div id="inner-wrap">
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+
+        {% include header.html %}
+
+        <div id="main" role="main">
+          <article class="block prose">
+
+            <div class="page-content">
+              <div class="wrapper">
+                {{ content }}
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        <!--</diV>-->
+
+        {% include footer.html %}
+
+        </div>
       </div>
-    </div>
-
-    {% include footer.html %}
 
   
   <script src="{{ site.baseurl }}/scripts/jquery.min.js"></script>
   <script language="javascript" type="text/javascript">
 
-  $(function() {
+   $(function() {
 
-    if($('pre').length >0 ){
+     if($('pre').length >0 ){
       
       
-      hljs.initHighlightingOnLoad();
+       hljs.initHighlightingOnLoad();
       
-    }
+     }
     
   });
 
   </script>
+  <script src="{{ site.baseurl }}/scripts/main.js"></script>
   </body>
 
 </html>
