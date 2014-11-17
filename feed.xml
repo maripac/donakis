@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 15 Nov 2014 02:30:43 +0100</pubDate>
-    <lastBuildDate>Sat, 15 Nov 2014 02:30:43 +0100</lastBuildDate>
+    <pubDate>Mon, 17 Nov 2014 07:33:34 +0100</pubDate>
+    <lastBuildDate>Mon, 17 Nov 2014 07:33:34 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -20,14 +20,14 @@
 
 &lt;p&gt;Jekyll uses &lt;a href=&quot;http://www.yaml.org/&quot;&gt;YAML&lt;/a&gt; to store its data. The YAML front matter is used in Jekyll to declare global variables in the _config.yml file, and locally at the top of each each post or page, in blocks similar to the one below:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blogging&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Like&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hacker&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;Blogging Like a Hacker&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;That data is retrieved by &lt;a href=&quot;http://liquidmarkup.org/&quot;&gt;Liquid&lt;/a&gt; which is the template engine runned by Jekyll. When you add to the front matter of some content, a ‘layout’ variable and assign to it the value ‘post’, as in the example above, you are telling Liquid to render that file by mapping its content into the corresponding area of the html template that is named post.html, which is stored in the _layouts folder. The files that are inside the _layouts folder are not static html files, and cannot be rendered by a web browser, they contain normal html code as well as Liquid directives that are written following the Liquid markdown syntax that looks like the code below —they can also include a YAML front matter block at the top—.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;head.html&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;A line of code like the previous one would be read and interpreted by Liquid as a placeholder for a block of code that has to be retrieved from a file called head.html that is stored in a folder named _includes. Once the block of code has been retrieved from the corresponding source file the include directive would be removed and substituted by a regular html block. So when you run &lt;code&gt;jekyll build&lt;/code&gt; or &lt;code&gt;jekyll serve&lt;/code&gt;, Liquid creates the estatic html files depending on the parameters set in the YAML front matter block. —The difference between running either of the two previous commands is that unlike &lt;code&gt;jekyll build&lt;/code&gt; which builds the static site inside the _site folder, running &lt;code&gt;jekyll serve&lt;/code&gt; will also start a local server on port 4000. That way you can view the actual site by opening your web browser and entering localhost:4000 in the address bar.— &lt;/p&gt;
 
@@ -64,74 +64,70 @@
 
 &lt;p&gt;I understand that you have already installed the jekyll ruby gem, if so open a terminal window, cd to the directory where you usually store your local projects and initialize a new jekyll site with:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ jekyll new mysitename
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mysitename&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To complete the next section you need a fresh new empty GitHub repository. You can create one following the steps indicated &lt;a href=&quot;https://help.github.com/articles/creating-a-new-repository/&quot;&gt;here&lt;/a&gt; up to the sixth point, remember not to add yet a .gitignore file, as suggested in the fifth step. Once you have completed the previous steps you’ll be provided with a ssh or https link that you will need in order to add to your local repository the newly created public one at GitHub as its remote origin. Copy the https or ssh link to your clipboard and back at the terminal go over the next section. It is important that you go over the following steps before running &lt;code&gt;jekyll build&lt;/code&gt; or &lt;code&gt;jekyll serve&lt;/code&gt; at all, so I understand that there is no _site folder yet living inside your local files.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git init
-$ git add .
-$ git commit -m &quot;Jekyll source files&quot; 
-$ git remote add origin git@github.com:username/repositoryname.git
-$ git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Jekyll source files&amp;quot;&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git@github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repositoryname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The following section initializes a new orphan branch, which is a branch that doesn’t share the history with the master branch, then removes from the new branch the entire git directory tree. Since the branch is left tracking no content at all, —you still haven’t &lt;code&gt;jekyll build&lt;/code&gt; the static files— the second part goes over the creation of an index.html file that will work as a placeholder that you can add to your staging area, then commit and finally push. Note here, that instead of pushing it to the master branch, you push to a gh-pages branch.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git checkout --orphan gh-pages
-$ git reset .
-$ rm -r *
-$ rm .gitignore
-$ echo &#39;Coming soon&#39; &amp;gt; index.html
-$ git add index.html
-$ git commit -m &quot;init gh-pages&quot;
-$ git push -u origin gh-pages
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orphan&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gh-pages&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reset&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gitignore&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;Coming soon&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;init gh-pages&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gh-pages&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I repeated this block after going back to the master branch. But this time I initialized a branch called prod-pages, because in my case I wanted to be able to generate two different static sites.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git checkout master
-$ git checkout --orphan prod-pages
-$ git reset .
-$ rm -r *
-$ rm .gitignore
-$ echo &#39;Coming soon&#39; &amp;gt; index.html
-$ git add index.html
-$ git commit -m &quot;init prod-pages&quot;
-$ git push -u origin prod-pages
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;orphan&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prod-pages&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reset&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gitignore&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;Coming soon&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;init prod-pages&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prod-pages&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Since those branches are now live at your GitHub public repository, you can go back to the master branch and map each of them to a folder, just by running a git clone directive with the -b branch-name and the indication of the folder where the clone will copy the files. I mapped the gh-pages clone to crete a _site folder, which is the default folder where Jekyll would build your static files as long as you don’t indicate a different destination for your site when running the build command. And the second clone mapped the prod-pages branch to a folder named _site-prod.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git checkout master
-$ git -b gh-pages clone git@github.com:username/repositoryname.git _site
-$ git -b prod-pages clone git@github.com:username/repositoryname.git _site-prod
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;checkout&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;master&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gh-pages&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git@github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repositoryname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_site&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prod-pages&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git@github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;repositoryname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_site-prod&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now you can open your .gitignore file. It should already include the _site folder, add a new line that excludes also the _site-prod folder. After adding the folder to the .gitignore directives, you can finally build your site, but for the static files that you want to access from the url that GitHub provides for project pages, you should add in the _config.yml file inside the baseurl variable, the subdirectory part of url where your project will be accesible once uploaded to GitHub Pages. So it shoul look like this &lt;code&gt;baseurl: &quot;/repositorname&quot;&lt;/code&gt;. Now you can finally build the static files, and push them to the live GitHub repository.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ jekyll build
-$ cd _site
-$ git add .
-$ git commit -m &#39;generated static files&#39;
-$ git push
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_site&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;generated static files&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Go back to the root. &lt;/p&gt;
+&lt;p&gt;Go back to the root.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ cd ..
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Open again the _config.yml, remove the subdirectory name previously added to the baseurl, safe the file and repeat the previous steps as follows:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ jekyll build --destination _site-prod
-$ cd _site-prod
-$ git add .
-$ git commit -m &#39;generated static site-prod&#39;
-$ git push
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-livescript&quot; data-lang=&quot;livescript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;destination&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_site-prod&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_site-prod&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;commit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;generated static site-prod&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;At this point you can view your site from the browser at the corresponding url.&lt;/p&gt;
+&lt;p&gt;At this point you can view your site from the browser at the corresponding url. &lt;/p&gt;
+
+&lt;h3 id=&quot;the-workflow&quot;&gt;The Workflow&lt;/h3&gt;
+
+&lt;p&gt;From this point it is very easy to engage with some kind of structured workflow. Maybe taking a look at the distribution of branches can help. If you enter &lt;code&gt;git branch&lt;/code&gt; git will output the current branch you’re at. Whenever you move to the root folder you’ll be working in the master branch, and if you cd to the _site folder you’ll be working in the gh-pages branch, in the same way cd’ing to the _site-prod would return the prod-pages branch. So instead of jumping from branch to branch you can just move to the corresponding directory to add, commit, and push to the remote site. &lt;/p&gt;
 
 </description>
         <pubDate>Thu, 13 Nov 2014 20:21:16 +0100</pubDate>
