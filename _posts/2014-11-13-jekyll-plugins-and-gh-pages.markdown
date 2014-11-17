@@ -107,8 +107,8 @@ Since those branches are now live at your GitHub public repository, you can go b
 
 {% highlight livescript %}
 $ git checkout master
-$ git -b gh-pages clone git@github.com:username/repositoryname.git _site
-$ git -b prod-pages clone git@github.com:username/repositoryname.git _site-prod
+$ git clone -b gh-pages git@github.com:username/repositoryname.git _site
+$ git clone -b prod-pages git@github.com:username/repositoryname.git _site-prod
 {% endhighlight %} 
 
 Now you can open your .gitignore file. It should already include the _site folder, add a new line that excludes also the _site-prod folder. After adding the folder to the .gitignore directives, you can finally build your site, but for the static files that you want to access from the url that GitHub provides for project pages, you should add in the _config.yml file inside the baseurl variable, the subdirectory part of url where your project will be accesible once uploaded to GitHub Pages. So it shoul look like this `baseurl: "/repositorname"`. Now you can finally build the static files, and push them to the live GitHub repository.
