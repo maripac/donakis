@@ -6,7 +6,7 @@
 */	
 
 
-$visual-grid: false !global;
+$visual-grid: true !global;
 
 $visual-grid-color: blue;
 
@@ -14,10 +14,4 @@ $visual-grid-index: front;
 
 $visual-grid-opacity: 0.05;	
 $max-width:100%;
-
-$laptop_reset: new-breakpoint(min-width 781px 12);
-$laptop: new-breakpoint(max-width 1140px 12);
-$tablet: new-breakpoint(max-width 780px 12);
-$mobile: new-breakpoint(max-width 480px 12);
-$monitor: new-breakpoint(min-width 1141px 12);
 
