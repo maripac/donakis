@@ -1,16 +1,14 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/donakis" # the subpath of your site, e.g. /blog/
+title: gostak.io
+email: 
+description: > #
+  Suppose someone to assert: The gostak distims the doshes. You do not know what this means; nor do I. But if we assume that it is English, we know that the doshes are distimmed by the gostak. We know too that one distimmer of doshes is a gostak. If, moreover, the doshes are galloons, we know that some galloons are distimmed by the gostak. And so we may go on, and so we often do go on.
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
-
+#twitter_username:
+github_username:  maripac
 # Build settings
 markdown: kramdown
 include:
   - .nojekyll
+

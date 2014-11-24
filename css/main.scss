@@ -50,3 +50,11 @@
 // ;
 @import "theme/base";
 
+footer{
+	.footer-col-2{
+		svg{
+		max-height: 3em;
+		}
+	}
+}
+

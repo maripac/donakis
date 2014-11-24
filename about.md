@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+This site consists of a pure Jekyll installation. The graphical layer of the base theme has been modified using the Bourbon library of tools: [Bourbon](http://bourbon.io/), [Neat](http://neat.bourbon.io/) and [Bitters](http://bitters.bourbon.io/). The offcanvas navigation feature, has been adapted from the implementation of [David Bushell](http://dbushell.com/). 
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+The source files are available at [GitHub](https://github.com/maripac/donakis).

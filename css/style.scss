@@ -444,7 +444,7 @@ body {
 #nav .block {
   z-index: 2;
   position: relative;
-  padding: 0.75em 1.25em;
+  //padding: 0.75em 1.25em;
 }
 #nav ul {
   *zoom: 1;
@@ -628,7 +628,7 @@ footer{
     font-weight: bold;
     letter-spacing: normal;
     &.page-heading{
-      //font-family: $font-ar;
+        //font-family: $font-ar;
         padding-bottom: 0.25em;
         //font-size:1.825em;
         //font-weight: bold;
@@ -691,7 +691,7 @@ footer[role="contentinfo"] {
     border-right: none;
   }
   #nav li a {
-    padding: 0.42857em 0.85714em;
+    padding-right: 0.85714em;
     opacity:1;
   }
 }
@@ -898,9 +898,18 @@ a.page-link{
         color:#024b95;
     }
 }
-#nav{
-    //background-color: #333;
+nav{
+  &#nav{
+  div.block{
+    overflow: hidden;
+
+
+    }
+      //background-color: #333;
+  }
+
 }
+
 
 #inner-wrap{
   //padding-bottom:4em;

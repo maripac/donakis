@@ -2,6 +2,7 @@
 layout: post
 title:  "Installing Ghost on OpenShift"
 date:   2014-09-29 02:26:00
+comments: true
 categories:
 subtitle: " How to sync your Ghost live blog with a cloned repository that runs locally"
 ---

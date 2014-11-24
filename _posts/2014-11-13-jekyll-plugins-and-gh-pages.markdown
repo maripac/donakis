@@ -2,6 +2,7 @@
 layout: post
 title:  "Jekyll Plugins and GitHub Pages"
 date:   2014-11-13 19:21:16
+comments: true
 categories:
 ---
 
@@ -55,7 +56,9 @@ Otherwise, if you are still bound to the first option you can check out [jekyll-
 
 ###The way I've managed to setup.
 
-The option that I've been able to implement is the second one, that allowes me to host a website per repository. I've complicated things a bit further in order to be able to generate two estatic sites. One to be hosted in GitHub pages that would serve as a testing/staging environment allowing me to experiment with the implementation of new features, and a second static site configured to live in another host. That way, I can ssh into my vps and clone the third branch with: `$ git clone -b third-branch-name https://github.com/username/myrepository.git html`.
+The option that I've been able to implement is the second one, that allowes me to host a website per repository. I've complicated things a bit further in order to be able to generate two estatic sites. One to be hosted in GitHub pages that would serve as a testing/staging environment allowing me to experiment with the implementation of new features, and a second static site configured to live in another host. <s>That way, I can ssh into my vps and clone the third branch with: <code>$ git clone -b third-branch-name https://github.com/username/myrepository.git html</code>.</s>
+
+There is a better solution for managing the deployment into a third production environment, without having to run clones an pulls from that environment. Click here
 
 ####Requirements:
 The following steps work from a newly created Jekyll installation, or from a Jekyll installation that doesn't yet have an initialized local git repository. If you haven't yet runned `git init` from the root of your repository, you can just delete the _site folder and follow along. If otherwise you are already tracking with git your Jekyll site, I'm not much of a git expert, but in my world of unexpected calamities, I think that instead of deleting the whole .git directory tree, a better solution could be to create a new Jekyll installation. Once you have set up the new project with its own local git index, and synchronized it to a GitHub repository with the following configuration of branches, you can move the source files from the original Jekyll project over to the new one and regenerate your site. 
@@ -143,5 +146,45 @@ At this point you can view your site from the browser at the corresponding url.
 
 From this point it is very easy to engage with some kind of structured workflow. Maybe taking a look at the distribution of branches can help. If you enter `git branch` git will output the current branch you're at. Whenever you move to the root folder you'll be working in the master branch, and if you cd to the _site folder you'll be working in the gh-pages branch, in the same way cd'ing to the _site-prod would return the prod-pages branch. So instead of jumping from branch to branch you can just move to the corresponding directory to add, commit, and push to the remote site. 
 
+###Update
 
+Ssh to your vps I suppose the git-core is installed. In a Debian system `# apt-get install git-core` would install the corresponding packages. The important thing now is to choose the directory for the  git repository. I've created in it inside the /var  as /var/repo/site.git .
 
+Once you run `git init --bare` you can `ls` to see contents and `cd` into the hooks folder which stores samples that are not yet active of diferent git customizable she-bang scripts that you can get git to launch before of after the execution of git tasks. These tasks are launched by git in response to the commands you run from another environment. Once the two systems have established the appropriate connections.
+
+{% highlight livescript %}
+cd /var
+mkdir repo
+cd repo
+mkdir site.git
+cd site.git
+git init --bare
+ls
+cd hooks
+{% endhighlight %}
+
+Create a new file:
+
+{% highlight livescript %}
+nano post-receive
+{% endhighlight %}
+
+Enter (matching /var/www/html with your apache virtual host or DocumentRoot of your live site):
+
+{% highlight livescript %}
+#!/bin/sh
+git --work-tree=/var/www/html --git-dir=/var/repo/site.git checkout -f
+{% endhighlight %}
+
+At your local system run `jekyll build --destination _site-prod`, cd to _site-prod. If you want to check just in case, but running git branch at this point shoul return prod-pages. Next you can add a new remote but instead of origin refer it as live.
+
+{% highlight livescript %}
+git remote add live ssh://usernamet@vpIPordomain/path/to/repo.git
+{% endhighlight %}
+
+Now you want to git add . whichever new additions that branch is holding, git commit -m 'a message'
+and the push directive is important to understand it. Because the remote live is now tracking your prod-pages branch as its master branch. So every time you want to update the changes to the production server you must push new commits to the master branch of the server's git repository. That way the bash script will be launched and the files loades to the apache virtual server.  
+
+{% highlight livescript %}
+git push live prod-pages:master
+{% endhighlight %}
