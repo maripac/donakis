@@ -1093,6 +1093,10 @@ pre {
 *------------------------------------------------------------------------------------
 */
 @font-face {
+  font-family: "rockwell-webfont";
+  src: url("../fonts/rockwell-webfont.eot");
+  src: url("../fonts/rockwell-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/rockwell-webfont.woff") format("woff"), url("../fonts/rockwell-webfont.ttf") format("truetype"), url("../fonts/rockwell-webfont.svg#rockwell-webfont") format("svg"); }
+@font-face {
   font-family: "altehaasgroteskregular-webfont";
   src: url("../fonts/altehaasgroteskregular-webfont.eot");
   src: url("../fonts/altehaasgroteskregular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/altehaasgroteskregular-webfont.woff") format("woff"), url("../fonts/altehaasgroteskregular-webfont.ttf") format("truetype"), url("../fonts/altehaasgroteskregular-webfont.svg#altehaasgroteskregular-webfont") format("svg"); }
@@ -1123,8 +1127,13 @@ a.site-title {
   padding-top: 6px; }
 
 .site-header {
-  background-color: #2fcab2;
-  border: 5px solid #205098; }
+  background-color: #2fcab2; }
+  .site-header h1 + h6 {
+    position: relative;
+    top: -5.5em;
+    left: 0.5em;
+    font-family: "altehaasgroteskregular-webfont";
+    color: #dffffe; }
 
 .page-content {
   float: left;
@@ -1322,8 +1331,7 @@ body {
 
 #nav .block {
   z-index: 2;
-  position: relative;
-  padding: 0.75em 1.25em; }
+  position: relative; }
 
 #nav ul {
   *zoom: 1;
@@ -1391,27 +1399,37 @@ body {
     .trigger a.page-link:hover {
       text-decoration: underline; }
 
-.site-header .block {
-  overflow: hidden; }
-.site-header .inner-header {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 82.94039%;
-  margin-left: 8.5298%;
-  min-height: 280px; }
-  .site-header .inner-header:last-child {
-    margin-right: 0; }
-  .site-header .inner-header h1 {
-    min-height: 280px;
-    font-family: courier;
-    color: #333;
-    font-size: 4.225em;
-    position: relative;
-    top: 1.225em;
-    font-weight: 500; }
-  .site-header .inner-header + a#nav-open-btn {
-    top: 17em; }
+.site-header {
+  height: 400px; }
+  .site-header .nav-btn {
+    display: block;
+    width: 2.625em;
+    height: 2em;
+    margin-top: -1.85em; }
+  .site-header .block {
+    overflow: hidden; }
+    .site-header .block + h6 {
+      height: 2.4em;
+      overflow: hidden; }
+  .site-header .inner-header {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%;
+    min-height: 280px; }
+    .site-header .inner-header:last-child {
+      margin-right: 0; }
+    .site-header .inner-header h1 {
+      min-height: 280px;
+      font-family: courier;
+      color: #333;
+      font-size: 4.225em;
+      position: relative;
+      top: 1.225em;
+      font-weight: 500; }
+    .site-header .inner-header + a#nav-open-btn {
+      top: 21em; }
 
 footer.site-footer {
   padding-top: 1.5556em;
@@ -1426,6 +1444,9 @@ footer .wrapper {
     color: #666;
     font-size: 0.88888em;
     line-height: 1.5em; }
+    footer .wrapper .footer-col-1 ul.contact-list li {
+      font-size: 1.55em;
+      font-weight: 500; }
     @media screen and (min-width: 781px) {
       footer .wrapper .footer-col-1 {
         float: left;
@@ -1454,6 +1475,15 @@ footer .wrapper {
     color: #666;
     font-size: 0.88888em;
     line-height: 1.5em; }
+    footer .wrapper .footer-col-2 ul.social.media-list li a {
+      font-size: 1.55em;
+      font-weight: 500; }
+      footer .wrapper .footer-col-2 ul.social.media-list li a .icon.icon--github svg {
+        width: 160px;
+        height: 160px; }
+      footer .wrapper .footer-col-2 ul.social.media-list li a span.username {
+        font-size: 2.55em;
+        font-weight: 500; }
     @media screen and (min-width: 781px) {
       footer .wrapper .footer-col-2 {
         float: left;
@@ -1569,7 +1599,7 @@ footer .wrapper {
     position: absolute;
     top: 0;
     opacity: 1;
-    padding-top: 369px; }
+    padding-top: 22.75em; }
     #nav .trigger a {
       background-color: #205098;
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -1767,3 +1797,25 @@ body .prose ul.post-list li {
   margin-bottom: 1.88888em; }
   body .prose ul.post-list li:nth-child(1) {
     padding-top: 18px; }
+
+h1.page-heading {
+  font-size: 2.3em; }
+
+#disqus_thread {
+  margin-top: 3em; }
+
+blockquote {
+  font-size: 1.5em;
+  width: 100%;
+  padding-left: 5%;
+  color: #333;
+  line-height: 1.5em;
+  text-decoration: none;
+  text-transform: none;
+  margin-top: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-family: "rockwell-webfont"; }
+
+footer .footer-col-2 svg {
+  max-height: 3em; }

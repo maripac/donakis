@@ -1507,8 +1507,7 @@ body {
 
 #nav .block {
   z-index: 2;
-  position: relative;
-  padding: 0.75em 1.25em; }
+  position: relative; }
 
 #nav ul {
   *zoom: 1;
@@ -1759,7 +1758,7 @@ footer .wrapper {
     border-right: none; }
 
   #nav li a {
-    padding: 0.42857em 0.85714em;
+    padding-right: 0.85714em;
     opacity: 1; } }
 @media screen and (max-width: 45em) {
   #nav {
@@ -1929,6 +1928,9 @@ a.page-link {
   padding-left: 0.33em; }
   a.page-link:hover {
     color: #024b95; }
+
+nav#nav div.block {
+  overflow: hidden; }
 
 html {
   font-size: 100%; }
