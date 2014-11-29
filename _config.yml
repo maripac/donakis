@@ -3,7 +3,7 @@ title: gostak.io
 email: 
 description: > #
   Suppose someone to assert: The gostak distims the doshes. You do not know what this means; nor do I. But if we assume that it is English, we know that the doshes are distimmed by the gostak. We know too that one distimmer of doshes is a gostak. If, moreover, the doshes are galloons, we know that some galloons are distimmed by the gostak. And so we may go on, and so we often do go on.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/donakis" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 #twitter_username:
 github_username:  maripac
@@ -11,4 +11,6 @@ github_username:  maripac
 markdown: kramdown
 include:
   - .nojekyll
-
+collections:
+  mailserver:
+    output: true

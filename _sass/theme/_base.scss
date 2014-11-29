@@ -31,10 +31,10 @@ $max-width:100%;
 ;
 //These must be declared after bourbon, neat and bitters import
 
-$laptop_reset: new-breakpoint(min-width 781px 12);
+$laptop_reset: new-breakpoint(min-width 721px 12);
 //$tablet_reset: new-breakpoint(min-width 481px 12);
 $laptop: new-breakpoint(max-width 1140px 12);
-$tablet: new-breakpoint(max-width 780px 12);
+$tablet: new-breakpoint(max-width 720px 12);
 $mobile: new-breakpoint(max-width 480px 12);
 $monitor: new-breakpoint(min-width 1141px 12);
 
@@ -1047,5 +1047,118 @@ blockquote{
       //font-family: sans-serif;
     }
   }
+}
+
+span{
+  &.post-series{
+    display:inline-block;
+    font-size:1.125em;
+    color: #205098;
+    font-size: 0.85em;
+    padding-right: 0.5em;
+    //float:left;
+   // width:20%;
+
+  }
+  &.title{
+//width:80%;
+
+
+     
+  }
+}
+
+
+// ul{
+//   &.post-list_aside{
+//     list-style-type: none;
+//     float:right;
+//     width:30%;
+//     padding-left:5%;
+//   }
+
+// }
+.post-content{
+  p{
+    font-family: sans-serif;
+  }
+}
+h2.in_series{
+  padding-top:0.225em;
+}
+ul{
+  li{
+    &.active{
+
+      a{
+       color: #205098;
+      }
+    }
+  }
+&.post-list_aside{
+  @include media($laptop_reset) {
+    list-style-type: none;
+    float:right;
+    width:30%;
+    padding-left:5%;
+    padding-top:0.5em;
+    //position: relative;
+    li{
+      position: relative;
+      right:-10px;
+      //background-color: #205098;
+      //background-color: #2fcab2;
+      background-color: #ededed;
+      padding:0.125em;
+      width:140%;
+      //  &:hover{
+      //     background-color: #ccc;
+      //   }
+
+         &.active{
+         background-color: #dedede;
+      //       a{
+      //   color: #205098;
+      //  border: none;
+       }
+    //}
+    a{
+      width:100%;
+      border: none;
+    }
+      // a{
+      //   border: none;
+      //   color: #205098;
+      //   width:100%;
+      //   &:hover{
+      //      color: #205098;
+      //   }
+      // }
+    }
+  }
+  @include media($tablet) {
+    list-style-type: none;
+    float:right;
+    width:100%;
+    padding-left:0%;
+  }
+  @include media($mobile) {
+    list-style-type: none;
+    float:right;
+    width:100%;
+    padding-left:0%;
+  }
+}
+}
+body .prose{
+div.highlight{
+  display: inline;
+  pre{
+  background-color: #002B36;
+  }
+  & + .highlight{
+    margin: auto 2.23em auto; 
+  }
+}
 }
 

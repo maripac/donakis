@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
+<!-- 
+{% if page.media_files %} 
+    {{ page.media_files | prepend: site.baseurl  }} 
+
+    {% raw %} {% if page.media_files %}{{ site.baseurl }}/{{ page.media_files | markdownify }} {% endif %} {{ 5 | plus: 6 }}{% endraw %}
+
+    {% else %}
+
+    <div>No page.media_files explicited</div>
+
+{% endif %} -->
+
+<article class="post-content">
+    {{ content }}
+</article>
+
+<ul class="post-list">
+ 
+    {% for post in site.mailserver %}
+        {% unless post.layout == 'inner_looping_post' %}
+
+        <li>
+            <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+
+            <h2>
+              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+
+            </h2>
+        </li>
+
+        {% endunless %}
+
+
+    {% endfor %}
+ </ul>
+
+<!--
+media_files: mailserver.txt
+="{{ site.baseurl }}/postItems/{{ page.media_files }}-->
+
+
+
+
+  
+</div>
+

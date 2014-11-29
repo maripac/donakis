@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Jekyll Plugins and GitHub Pages"
-date:   2014-11-13 19:21:16
+title: "Jekyll Plugins and GitHub Pages"
 comments: true
-categories:
+date:  2014-11-13 19:21:16
+categories: 
 ---
 
 I think Ghost and OpenShift combine to make a good solution for a blogging platform. But since I also wanted to test D3 diagrams I came across [Jekyll](http://jekyllrb.com), which is a more of a do-it-yourself kind of thing. It doesn't support writting posts online, but that wasn't something I needed, instead I wanted to be able to load json data from inline javascript inside of posts, work with collections, etc... There was also another inconvenience when using your own domain with an OpenShift application because you are not provided with a static IP, over to which you can point an A record in order for your domain to be resolved to the OpenShift application. Then you are forced to create a CNAME record with the appex www or either use a subdomain. With GitHub Pages there is some way around, even if it is not straight away: you can have a CNAME file at the root of your repository, containing yourdomian.com (without www), and then just create two A records with your domain provider: one with the appex @ which defaults to the root, and the other with www pointing to 192.30.252.153 and 192.30.252.154. The solution is further detailed in [stackoverflow](http://stackoverflow.com/a/9123911).

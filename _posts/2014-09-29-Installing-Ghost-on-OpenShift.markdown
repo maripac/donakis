@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Installing Ghost on OpenShift"
-date:   2014-09-29 02:26:00
+title: "Installing Ghost on OpenShift"
 comments: true
-categories:
-subtitle: " How to sync your Ghost live blog with a cloned repository that runs locally"
+date:   2014-09-29 02:26:00
+categories: 
 ---
+
 **Note** *This post is being written with the intention of keeping a personal record of the actions performed in my particular environment, meeting a set of conditions which I'm not sure I'll be able to point out in every case. Including ruby, git and node.js version; operating system and so on. OpenShift provides plenty of documentation regarding these options which I will try to refer, and which I strongly recommend to consult before trying to perform any modification in any other particular environment.* 
  
 ## Installation and configuration of the Client Tools

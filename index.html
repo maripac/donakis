@@ -11,9 +11,20 @@ layout: default
       <li>
         <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
 
+
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+
+            
+           {% if post.permalink %}
+            <span class="post-series">post series &dash; </span>
+            {% endif %}<span class="title">{{ post.title }}</span>
+          </a>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
         </h2>
+
       </li>
     {% endfor %}
   </ul>

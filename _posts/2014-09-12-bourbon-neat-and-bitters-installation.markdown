@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Bourbon, Neat and Bitters installation"
-date:   2014-09-12 19:17:00
+title: "Bourbon, Neat and Bitters installation"
 comments: true
-categories:
+date: 2014-09-12 19:17:00
+categories: 
 ---
 
 This site runs with [Jekyll](http://jekyllrb.com/). I modified the base Jekyll theme in order to have some control over the behaviour of the site's layout throughout the widest possible range of screen sizes. The [Neat](http://neat.bourbon.io/) library framework developed at [Thoughtbot](http://thoughtbot.com/) on top of [Bourbon](http://bourbon.io/), is a great option that allows you to create truly semantic grid systems. By adding [Bitters](http://bitters.bourbon.io/) you can setup a uniform baseline grid, and control the distribution of elements on the y-axis. This way the vertical rythm of the layout would allow you to regulate the eventual disarrangements that might take place in the vertical axis derived from the redistribution of elements, depending on the screen sizes of the devices that request them. For example, when the device allowes to redistribute in different columns additional content, the baseline adjustment will help matching the outest top and bottom edges of the containers side by side with the inner pattern of falling line heights inside the primary container. 
