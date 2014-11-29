@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Bourbon, Neat and Bitters installation</title>
+    <title>001 Options for enabling secure connections: The TLS protocol</title>
     <meta name="description" content="Suppose someone to assert: The gostak distims the doshes. You do not know what this means; nor do I. But if we assume that it is English, we know that the doshes are distimmed by the gostak. We know too that one distimmer of doshes is a gostak. If, moreover, the doshes are galloons, we know that some galloons are distimmed by the gostak. And so we may go on, and so we often do go on.
 ">
 
@@ -14,7 +14,7 @@
     <!--<link rel="stylesheet" href="/donakis/css/style.css">-->
     <!--<link rel="stylesheet" href="/donakis/css/collapse.css">-->
     <link rel="stylesheet" href="/donakis/css/main.css">
-    <link rel="canonical" href="http://yourdomain.com/donakis/2014/09/12/bourbon-neat-and-bitters-installation.html">
+    <link rel="canonical" href="http://yourdomain.com/donakis/mailserver/startssl-crt/001-options-for-enabling-secure-connections-TLS.html">
 
     <!--<script src="/donakis/scripts/highlight.pack.js"></script>-->
     <script src="/donakis/scripts/modernizr.js"></script>
@@ -191,58 +191,188 @@
             <div class="page-content">
               <div class="wrapper">
                 <div class="post">
+    <h2 class="in_series">001 Options for enabling secure connections: The TLS protocol</h2>
 
-  <header class="post-header">
-    <h1 class="post-title">Bourbon, Neat and Bitters installation</h1>
-    <p class="post-meta">Sep 12, 2014</p>
-  </header>
+<ul class="post-list_aside">
+ 
+    
+        
 
 
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/000-intro-and-resources.html"><span class="numbered">0</span> &mdash; Intro and resources</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
 
 
-  <article class="post-content">
-    <p>This site runs with <a href="http://jekyllrb.com/">Jekyll</a>. I modified the base Jekyll theme in order to have some control over the behaviour of the site’s layout throughout the widest possible range of screen sizes. The <a href="http://neat.bourbon.io/">Neat</a> library framework developed at <a href="http://thoughtbot.com/">Thoughtbot</a> on top of <a href="http://bourbon.io/">Bourbon</a>, is a great option that allows you to create truly semantic grid systems. By adding <a href="http://bitters.bourbon.io/">Bitters</a> you can setup a uniform baseline grid, and control the distribution of elements on the y-axis. This way the vertical rythm of the layout would allow you to regulate the eventual disarrangements that might take place in the vertical axis derived from the redistribution of elements, depending on the screen sizes of the devices that request them. For example, when the device allowes to redistribute in different columns additional content, the baseline adjustment will help matching the outest top and bottom edges of the containers side by side with the inner pattern of falling line heights inside the primary container. </p>
+    
+        
+        
 
-<p>The <a href="http://bourbon.io/">Bourbon</a> library is built for <a href="http://sass-lang.com/">Sass</a>. It can be installed to work with <a href="http://compass-style.org/">Compass</a> as well, but maybe you need to update your Compass version to 1.0.0 or newer. Previous releases of Compass do not support Sass 3.3 which is needed if you want to install the current version of the Bourbon gem. With that in mind, you might want to check which version is installed in your machine, before installing or updating any ruby gem. Just type <code>$ compass version</code> from the command line and the output should contain which version of the Compass gem you are running.  </p>
+        <li class="active">
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
-<h3 id="not-found">Not found</h3>
+            
+              <a class="post-link-aside" href="#"><span class="numbered">1</span> &mdash; Options for enabling TLS</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
-<p>If the command returned a not found argument, you don’t need to install Compass at all to work with Bourbon. I’m not going to do it myself in this case, so apart from the configuration and installation of the compatible Ruby gems, I won’t cover any other aspect of the Compass workflow. And I must admit also that I do not see many reasons to combine these two frameworks. One of the greatest advantages I’ve found when working with Bourbon over Compass is the unobtrusive control and freedom that the framework provides you over any type of layout. It doesn’t tie you to floating positioned layouts, or any other kind of inmutable approach for building your site. However and apart from the fact that I find myself most confortable when using a set of tools instead of another, I am aware that Compass is, and has been for some time, the framework most widely used to deploy Sass preprocessed stylesheets. This gives me a slight idea of the volume of projects that might depend on older versions of Sass, so I think that it’s always a good thing to document the easy steps that can avoid you from having to troubleshoot errors.  Most of the time is a simple thing: you launch a new project, reconfigure your environment, go back to an older project and find something went wrong, check the syntax, downgrade packages, etc… But this can become a little time-consuming. </p>
+            
+        </li>
+        
 
-<h3 id="compass-100">Compass 1.0.0</h3>
-<p>Another possibility is that <code>$ compass version</code> returned 1.0.0 or newer. In that case you are safe to go and install the Bourbon gem with <code>$ gem install bourbon</code>. </p>
+        
 
-<h3 id="older-compass-needed-for-this-project">Older Compass (needed for this project)</h3>
 
-<p>If you need to run Bourbon with an older version of Compass or Sass you need to install bourbon 3.2.x. So instead of just typing <code>$ gem install bourbon</code> which defaults to the latest stable release you can specify a version as in <code>$ gem install bourbon -v 3.2.3</code> . In the case of Neat the release that is compatible with Sass 3.2 is neat 1.5.1 so running <code>$ gem install neat -v 1.5.1</code> will do. Bitters can be installed normally with <code>$ gem install bitters</code> since the gem is compatible with versions of Sass starting from Sass 3.0.0.</p>
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
-<ul>
-  <li><a href="https://github.com/thoughtbot/bourbon#requirements">Bourbon</a></li>
-  <li><a href="https://github.com/thoughtbot/neat#requirements">Neat</a></li>
-  <li><a href="https://github.com/thoughtbot/bitters#requirements">Bitters</a></li>
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/002-creating-the-private-key-and-request-crs-locally.html"><span class="numbered">2</span> &mdash; Private key and certificate request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/003-startssl-authentication-and-validation.html"><span class="numbered">3</span> &mdash; Authentication and Validation</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/004-obtaining-the-certificate-signed-by-startssl.html"><span class="numbered">4</span> &mdash; Processing the Certificate Request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/005-apache-virtual-host-on-secured-port.html"><span class="numbered">5</span> &mdash; Apache configuration</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/006-on-trusted-authorities-and-the-chain-of-trust.html"><span class="numbered">6</span> &mdash; On trusted Authorities</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
 </ul>
 
-<h3 id="older-compass-needed-for-different-projects">Older Compass (needed for different projects)</h3>
+  <article class="post-content">
+    <p>As explained in the ISPmail guide, the first steps to be taken involve <a href="https://workaround.org/ispmail/wheezy/tlsifying-your-server">making your mailserver capable of establishing TSL connections</a>. There are four different ways in which you can approach this requirement.</p>
 
-<p>If the previous command returned Compass 0.12.6 or similar, but you are starting with a new project that does not require an old version of Compass, chances are that you might still need to run an old Compass projects that depends on Compass 0.12.6 and Sass 3.2. If this is the case but you still update your installation, you won’t notice any incompatibility issue untill you run an old Compass project on Sass 3.3, which will prompt you with constant deprecation warnings and syntax errors.</p>
+<ol>
+  <li>
+    <dl>
+      <dt>Without any type of certificate. </dt>
+      <dd>In which case every time you establish a connection to the mailserver you’ll have to tell the client that you trust the server.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>By creating your own certificate. </dt>
+      <dd>In which case you’ll have to configure a security exception once for every client you use to connect to your mailserver, so that the client knows that you trust the server.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>By requesting a free certificate.</dt>
+      <dd>From the <a href="https://www.startssl.com/">StartCom Certification Authority</a>.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>By paying for a certificate.</dt>
+      <dd>From any other Certification Authority.</dd>
+    </dl>
+  </li>
+</ol>
 
-<p>When collaborating on projects that require a group of people to work on the same files and track them with some kind of version control system this is a common problem. <a href="http://bundler.io/">Bundler</a> is a tool that helps solving ruby dependencies. It can be installed as a Ruby gem with <code>$ gem install bundler</code> and works in a similar way as other package management systems. If you want to specify a set of gems for a specific project, open a terminal session and cd to the root of your project, then just enter <code>$ bundle init</code> and you will find a newly created Gemfile, that you can open with read/write permissions <code>$ sudo vi Gemfile</code>. Add there the required dependencies, following the syntax below:</p>
+<p>I chose to take the third option and proceeded with the request of a free cretificate. There are a couple of things to take into account surrounding the <a href="http://en.wikipedia.org/wiki/StartCom#Limitations_of_StartSSL_Free">StartCom policy</a>, the one that has caused a lot of debate regards their <a href="http://en.wikipedia.org/wiki/StartCom#Response_to_heartbleed">response to the heartbleed vulnerability</a>. You can read more on this debate <a href="https://news.ycombinator.com/item?id=7557764">here</a>, and <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=744027">here</a>.</p>
 
-<div class="highlight"><pre><code class="language-livescript" data-lang="livescript"><span class="nx">gem</span> <span class="s">&#39;compass&#39;</span><span class="p">,</span> <span class="s">&#39;~&gt;1.0.0&#39;</span>
-<span class="nx">gem</span> <span class="s">&#39;sass&#39;</span>
-<span class="nx">gem</span> <span class="s">&#39;bourbon&#39;</span>
-<span class="nx">gem</span> <span class="s">&#39;neat&#39;</span>
-<span class="nx">gem</span> <span class="s">&#39;bitters&#39;</span></code></pre></div>
+<p>It is true that I did not have the information provided above when I made my decision, but I must say I did not either take the time to search around, so my fault, obviously. Anyway, as it is stated in some of the links above there are two things to be precautious about surrounding the StartCom Authority:</p>
 
-<p>This file works in Ruby in a similar way the packaje.json works inside a Node.js project. As in a Node.js project running <code>$ npm install</code> would launch npm, –node package manager– to start the installation of the dependencies especified in the package.json; with Bundler you’d have to run <code>$ bundle install</code>. This will launch the installer and solve any conflicts when matching your global Ruby installation to your local especification. Once the installation has completed you’ll find a new file Gemfile.lock that contains a complete reference to the installation performed by Bundler. Add it to the staging area of your repository, so it is tracked next time you commit your changes. <code>$ git add Gemfile.lock</code></p>
+<ul>
+  <li>Revocation has a fee of 24.90$.</li>
+  <li>The validation requires a working mail account associated to the domain.</li>
+</ul>
 
-<p>The last thing to comment in relation to Compass is that when installed with Bundler, to be sure that you are running the correct Compass version, you should run <code>$ bundle exec compass watch</code> instead of <code>$ compass watch</code>. </p>
+<p>The first point, means that to avoid paying a fee of 24.90$, the FQDN, Fully Qualified Domain Name, that you want the certificate to be extended for, must match:</p>
 
-<p>To start using the Bourbon stack of tools run <code>$ bundle exec bourbon install --path=path/to/sass</code> ,  <code>$ bundle exec neat install --path=path/to/sass</code> and  <code>$ bundle exec bitters install --path=path/to/sass</code>. Each of these three commands will create a folder containing the source files. It is important that you don’t make any modifications to these files. They contain the default parameters used by each of these tools, but since the variables are declared with the following sass syntax:</p>
+<ul>
+  <li>The FQDN that you enter when you create the requesting document in your local system.</li>
+  <li>The FQDN that you enter in the StartSSL website when requesting the certificate.</li>
+  <li>The FQDN that you assign to your mailserver whith your DNS manager.</li>
+</ul>
 
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$variable-option</span><span class="o">:</span> <span class="n">value</span> <span class="nv">!default</span><span class="p">;</span></code></pre></div>
+<p>The second point, means that, before you can request a certificate for a domain at StartCom, first you will have to prove yourself as the owner of the domain in question. The way in which StartCom proceeds with this validation is by sending a mail containing a password to a mail account such as webmaster@yourdomain.com, info@yourdomain.com, hostmaster@yourdomain.com and such. Since you are setting up a mail server, chances are that you will not have access to those email accounts. In that case you have to make sure that you own the domain, and that it is registered in the way that I will explain.</p>
 
-<p>The !default termination means that if the variable has no value assigned, it should default to the one especified here. So keeping these three folders untouched will keep you from having to commit them to a repository. Since Bundler has created a Gemfile.lock with the specific versions your project is running, anyone wanting to work on the same project would only have to clone the repository, run <code>$ bundle install</code> and the three bundle exec commands mentioned above. </p>
+<p>When you register a domain with a DNS provider, you normaly create a user account that is associated with your current mail account. In normal circumstances, after you have purchased a domain your DNS provider creates a <code>whois</code> record and publishes it on the internet. Obviously if you have purchased your domain and enabled some kind of privacy protection feature, your whois information will not be publicly available. In addition, there are some DNS providers that do not include your email account within the whois record. That was the case with <a href="https://iwantmyname.com/">iwantmyname.com</a>, and I solved it in a way that does not apply here. So what I would recommend is first of all, that you clear out any doubts by running <code>whois yourdomain.com</code> from the terminal, additionally this <a href="http://whois.domaintools.com/">website</a> might provide a more complete report. And secondly, if the previous command did not output your working email account, try to contact directly your DNS provider to explain the situation. Also note that any update performed on the information associated to your domain will need at least 24 hours to propagate accross the internet.</p>
+
 
   </article>
 

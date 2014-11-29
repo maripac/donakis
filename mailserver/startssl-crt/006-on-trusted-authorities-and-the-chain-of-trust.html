@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>gostak.io</title>
+    <title>006 On trusted Authorities and the Chain of Trust</title>
     <meta name="description" content="Suppose someone to assert: The gostak distims the doshes. You do not know what this means; nor do I. But if we assume that it is English, we know that the doshes are distimmed by the gostak. We know too that one distimmer of doshes is a gostak. If, moreover, the doshes are galloons, we know that some galloons are distimmed by the gostak. And so we may go on, and so we often do go on.
 ">
 
@@ -14,7 +14,7 @@
     <!--<link rel="stylesheet" href="/donakis/css/style.css">-->
     <!--<link rel="stylesheet" href="/donakis/css/collapse.css">-->
     <link rel="stylesheet" href="/donakis/css/main.css">
-    <link rel="canonical" href="http://yourdomain.com/donakis/">
+    <link rel="canonical" href="http://yourdomain.com/donakis/mailserver/startssl-crt/006-on-trusted-authorities-and-the-chain-of-trust.html">
 
     <!--<script src="/donakis/scripts/highlight.pack.js"></script>-->
     <script src="/donakis/scripts/modernizr.js"></script>
@@ -190,87 +190,165 @@
 
             <div class="page-content">
               <div class="wrapper">
-                <div class="home">
+                <div class="post">
+    <h2 class="in_series">006 On trusted Authorities and the Chain of Trust</h2>
 
-  <h1 class="page-heading">index</h1>
-
-  <ul class="post-list">
+<ul class="post-list_aside">
+ 
     
-      <li>
-        <!--<span class="post-meta">Nov 21, 2014</span>-->
+        
 
 
-        <h2>
-
-          <a class="post-link" href="/donakis/mailserver">
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           
-            <span class="post-series">post series &dash; </span>
-            <span class="title">Start from scratch: mailserver setup</span>
-          </a>
-          <span class="post-meta">Nov 21, 2014</span>
-
-        </h2>
-
-      </li>
-    
-      <li>
-        <!--<span class="post-meta">Nov 13, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/11/13/jekyll-plugins-and-gh-pages.html">
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/000-intro-and-resources.html"><span class="numbered">0</span> &mdash; Intro and resources</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Jekyll Plugins and GitHub Pages</span>
-          </a>
-          <span class="post-meta">Nov 13, 2014</span>
+        </li>
+        
 
-        </h2>
+        
 
-      </li>
+
     
-      <li>
-        <!--<span class="post-meta">Sep 29, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/09/29/Installing-Ghost-on-OpenShift.html">
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Installing Ghost on OpenShift</span>
-          </a>
-          <span class="post-meta">Sep 29, 2014</span>
-
-        </h2>
-
-      </li>
-    
-      <li>
-        <!--<span class="post-meta">Sep 12, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/09/12/bourbon-neat-and-bitters-installation.html">
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/001-options-for-enabling-secure-connections-TLS.html"><span class="numbered">1</span> &mdash; Options for enabling TLS</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Bourbon, Neat and Bitters installation</span>
-          </a>
-          <span class="post-meta">Sep 12, 2014</span>
+        </li>
+        
 
-        </h2>
+        
 
-      </li>
+
     
-  </ul>
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
-  <p class="rss-subscribe">subscribe <a href="/donakis/feed.xml">via RSS</a></p>
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/002-creating-the-private-key-and-request-crs-locally.html"><span class="numbered">2</span> &mdash; Private key and certificate request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/003-startssl-authentication-and-validation.html"><span class="numbered">3</span> &mdash; Authentication and Validation</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/004-obtaining-the-certificate-signed-by-startssl.html"><span class="numbered">4</span> &mdash; Processing the Certificate Request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/005-apache-virtual-host-on-secured-port.html"><span class="numbered">5</span> &mdash; Apache configuration</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+
+        <li class="active">
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="#"><span class="numbered">6</span> &mdash; On trusted Authorities</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+</ul>
+
+  <article class="post-content">
+    <p>A digital certificate certifies the ownership of a public key by the named subject of the certificate. This allows others (relying parties) to rely upon signatures or on assertions made by the private key that corresponds to the certified public key. In this model of trust relationships, a CA is a trusted third party - trusted both by the subject (owner) of the certificate and by the party relying upon the certificate. </p>
+
+<p>It will not be very difficult to bear the possibility of some type of collapse concerning this whole structure of trust that might affect the current system of CA (Certificate Authorities) in a short time basis. The chain certificate structure is based on a layered system, whose logic operates mainly by assuming as trustworthy those layers that have been denoted as such by an entity that is located before another in a chained structure. This adds up for a very delicate balance, which is already starting to raise a number of doubts around its own strenght. So, in my personal opinion I would not underestimate the new emerging proposals such as <a href="https://letsencrypt.org/">Let’s Encrypt</a> that hopefully will turn into a reality those better perspectives that will bring to an end the type boundaries that surprisingly enough still make of the internet a place of unequal access to permanent resources. </p>
+
+  </article>
+
+
+  
 </div>
+
+	<div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * */
+    var disqus_shortname = 'gostak'; // Required - Replace example with your forum shortname
+    //var disqus_identifier = 'a unique identifier for each page where Disqus is present';
+    //var disqus_title = 'a unique title for each page where Disqus is present';
+    //var disqus_url = 'a unique URL for each page where Disqus is present';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
 
               </div><!--//.wrapper-->
             </div><!--//.page-content-->

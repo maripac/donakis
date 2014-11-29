@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>gostak.io</title>
+    <title>003 Authentication and Validation of Email and Domain Name</title>
     <meta name="description" content="Suppose someone to assert: The gostak distims the doshes. You do not know what this means; nor do I. But if we assume that it is English, we know that the doshes are distimmed by the gostak. We know too that one distimmer of doshes is a gostak. If, moreover, the doshes are galloons, we know that some galloons are distimmed by the gostak. And so we may go on, and so we often do go on.
 ">
 
@@ -14,7 +14,7 @@
     <!--<link rel="stylesheet" href="/donakis/css/style.css">-->
     <!--<link rel="stylesheet" href="/donakis/css/collapse.css">-->
     <link rel="stylesheet" href="/donakis/css/main.css">
-    <link rel="canonical" href="http://yourdomain.com/donakis/">
+    <link rel="canonical" href="http://yourdomain.com/donakis/mailserver/startssl-crt/003-startssl-authentication-and-validation.html">
 
     <!--<script src="/donakis/scripts/highlight.pack.js"></script>-->
     <script src="/donakis/scripts/modernizr.js"></script>
@@ -190,87 +190,181 @@
 
             <div class="page-content">
               <div class="wrapper">
-                <div class="home">
+                <div class="post">
+    <h2 class="in_series">003 Authentication and Validation of Email and Domain Name</h2>
 
-  <h1 class="page-heading">index</h1>
-
-  <ul class="post-list">
+<ul class="post-list_aside">
+ 
     
-      <li>
-        <!--<span class="post-meta">Nov 21, 2014</span>-->
+        
 
 
-        <h2>
-
-          <a class="post-link" href="/donakis/mailserver">
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           
-            <span class="post-series">post series &dash; </span>
-            <span class="title">Start from scratch: mailserver setup</span>
-          </a>
-          <span class="post-meta">Nov 21, 2014</span>
-
-        </h2>
-
-      </li>
-    
-      <li>
-        <!--<span class="post-meta">Nov 13, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/11/13/jekyll-plugins-and-gh-pages.html">
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/000-intro-and-resources.html"><span class="numbered">0</span> &mdash; Intro and resources</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Jekyll Plugins and GitHub Pages</span>
-          </a>
-          <span class="post-meta">Nov 13, 2014</span>
+        </li>
+        
 
-        </h2>
+        
 
-      </li>
+
     
-      <li>
-        <!--<span class="post-meta">Sep 29, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/09/29/Installing-Ghost-on-OpenShift.html">
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Installing Ghost on OpenShift</span>
-          </a>
-          <span class="post-meta">Sep 29, 2014</span>
-
-        </h2>
-
-      </li>
-    
-      <li>
-        <!--<span class="post-meta">Sep 12, 2014</span>-->
-
-
-        <h2>
-
-          <a class="post-link" href="/donakis/2014/09/12/bourbon-neat-and-bitters-installation.html">
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/001-options-for-enabling-secure-connections-TLS.html"><span class="numbered">1</span> &mdash; Options for enabling TLS</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
             
-           <span class="title">Bourbon, Neat and Bitters installation</span>
-          </a>
-          <span class="post-meta">Sep 12, 2014</span>
+        </li>
+        
 
-        </h2>
+        
 
-      </li>
+
     
-  </ul>
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
 
-  <p class="rss-subscribe">subscribe <a href="/donakis/feed.xml">via RSS</a></p>
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/002-creating-the-private-key-and-request-crs-locally.html"><span class="numbered">2</span> &mdash; Private key and certificate request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
 
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+
+        <li class="active">
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="#"><span class="numbered">3</span> &mdash; Authentication and Validation</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/004-obtaining-the-certificate-signed-by-startssl.html"><span class="numbered">4</span> &mdash; Processing the Certificate Request</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/005-apache-virtual-host-on-secured-port.html"><span class="numbered">5</span> &mdash; Apache configuration</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+        
+        
+                <li>
+            <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+              <a class="post-link-aside" href="/donakis/mailserver/startssl-crt/006-on-trusted-authorities-and-the-chain-of-trust.html"><span class="numbered">6</span> &mdash; On trusted Authorities</a>
+              <!--<span class="post-meta">Nov 27, 2014</span>-->
+
+            
+        </li>
+        
+
+        
+
+
+    
+</ul>
+
+  <article class="post-content">
+    <p>To carry on with the following steps you can forget about the previously created certificate requets because they will be used later. Now you need to sign in for an account at the <a href="https://www.startssl.com/">StartCom Certification Authority</a>. There is some aspects that is best to be informed about before signing into their website. </p>
+
+<p>StartSSL will not authenticate yourself in the normal way in which you would have a user password that you could use from any computer to sign into your account. Instead, StartSSL will create a key that will be stored in your browser once you have accepted the operation. From now on, each time you access the StartSSL website, you will be asked to allow StartSSL to access the document. This means that you must access your profile at StartSSL from the same computer and browser that you used to register the first time. Since StartSSL free certificates are extended for just one year of duration, it is very important that you burn this personal key to an external CD and keep it safely and outside your computer. This will prevent future problems whenever you need to update certificates, etc… That way you will always have the posssibility of installing your personal key in other browsers that will allow you to access the information associated to your certificates in the future.</p>
+
+<p>Next you have to validate your personal email. To complete this step you can navigate to the <a href="https://www.startssl.com/">StartSSL main page</a> and click on the button that looks like the one below, which allowes you to “Log into your control panel”.</p>
+
+<p><img src="/donakis/images/auth.png" alt="login button" title="login button" /> </p>
+
+<p>From the control panel you first have to click on the Validation tab, and select from the dropdown menu the email validation option. Next follow steps in order to validate your email account. </p>
+
+<h3 id="domain-name-validation">Domain Name validation</h3>
+
+<p>At this point we will proceed with the Domain Name validation, that as explained before will prove yourself as the owner of the Domain Name for which you want to request a certificate. Navigate to the <a href="https://www.startssl.com/">StartSSL main page</a> and again click the button that will allow you to enter the control panel. Inside the control panel you must click again on the Validation tab, but unlike the previous step, now we must choose from the dropdown menu the option that corresponds to the Domain Name Validation.</p>
+
+<p><img src="/donakis/images/validation.png" alt="Domain Name Validation" style="border:1px solid #003300;" /></p>
+
+<p>Then you will enter the Domain Name for which you want to prove ownership. It is not needed that you enter here a FQDN, so enter just the Domain Name as it was registered (e.g, mydomain.com). At this point the StartSSL engine should have performed a whois query on your domain, so the working email account that you have configured with your DNS provider to be included within your whois contact info should be included as an option. Select it, and go to your email account to retrieve the needed verification code, that StartSSL has sent to you. Checkout the spam mailbox, in case you do not find it or click on the send new verification code button at the StartCom panel.</p>
+
+<p>Once you have made yourself with the verification code sent to the email account associated to the Domain, go back to StartSSL and paste it inside the text field that has been enabled for that purpose. StartSSL should respond with the corresponding feedback that will let you know wether you have successfully validated the Domain Name or not. </p>
+
+  </article>
+
+
+  
 </div>
+
+	<div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * */
+    var disqus_shortname = 'gostak'; // Required - Replace example with your forum shortname
+    //var disqus_identifier = 'a unique identifier for each page where Disqus is present';
+    //var disqus_title = 'a unique title for each page where Disqus is present';
+    //var disqus_url = 'a unique URL for each page where Disqus is present';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
 
               </div><!--//.wrapper-->
             </div><!--//.page-content-->
