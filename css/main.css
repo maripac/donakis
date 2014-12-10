@@ -1833,6 +1833,24 @@ h2.in_series {
 ul li.active a {
   color: #205098; }
 @media screen and (min-width: 721px) {
+  ul.post-list_aside-svg {
+    list-style-type: none;
+    float: right;
+    width: 100%;
+    padding-left: 0%; } }
+@media screen and (max-width: 720px) {
+  ul.post-list_aside-svg {
+    list-style-type: none;
+    float: right;
+    width: 100%;
+    padding-left: 0%; } }
+@media screen and (max-width: 480px) {
+  ul.post-list_aside-svg {
+    list-style-type: none;
+    float: right;
+    width: 100%;
+    padding-left: 0%; } }
+@media screen and (min-width: 721px) {
   ul.post-list_aside {
     list-style-type: none;
     float: right;
@@ -1869,6 +1887,24 @@ body .prose div.highlight {
     background-color: #002B36; }
   body .prose div.highlight + .highlight {
     margin: auto 2.23em auto; }
+
+.img-container-polymers {
+  width: 100%; }
+  .img-container-polymers img {
+    width: 100%;
+    height: auto; }
+
+td.linenos {
+  width: 40px;
+  border: none; }
+  td.linenos div.linenodiv {
+    background-color: #002B36;
+    color: #93a1a1;
+    border-right: 1px solid #93a1a1; }
+td.code {
+  border: none; }
+  td.code .highlight pre {
+    padding-left: 0.75em; }
 
 footer .footer-col-2 svg {
   max-height: 3em; }
