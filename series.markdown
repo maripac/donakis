@@ -1,5 +1,5 @@
 ---
-layout: page_series
+layout: pageSeries
 title: "Series"
 categories: 
 permalink: /series/

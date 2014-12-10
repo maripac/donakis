@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "003 Authentication and Validation of Email and Domain Name"
 comments: true
 date: 2014-11-27 15:21:16

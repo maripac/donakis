@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "000 Intro and resources"
 comments: true
 date: 2014-11-27 19:21:16

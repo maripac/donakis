@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "004 Obtaining the Signed Certificate"
 comments: true
 date: 2014-11-27 14:21:16

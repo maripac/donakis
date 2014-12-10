@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="post">
+
+
+
+  <article class="post-content">
+      {{ content }}
+  </article>
+
+  <ul class="post-list">
+  {% for list in site.data.lists %}
+    <li>
+      <h2>
+        <a class="post-link" href="{{ list.ubicacion | prepend: site.baseurl }}">{{ list.nombre }}</a>
+      </h2>
+    </li>
+  {% endfor %}
+  </ul>
+ 
+</div>
+

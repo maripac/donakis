@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "005 Apache VirtualHost configuration"
 comments: true
 date: 2014-11-27 01:21:16

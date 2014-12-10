@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "001 Options for enabling secure connections: The TLS protocol"
 comments: true
 date: 2014-11-27 19:21:16
@@ -9,7 +9,7 @@ short-name: "Options for enabling TLS"
 cabecera: "001 Options for enabling secure connections: The TLS protocol"
 ---
 
-As explained in the ISPmail guide, the first steps to be taken involve [making your mailserver capable of establishing TSL connections](https://workaround.org/ispmail/wheezy/tlsifying-your-server). There are four different ways in which you can approach this requirement.
+As explained in the ISPmail guide, the first steps to be taken involve [making your mailserver capable of establishing TLS connections](https://workaround.org/ispmail/wheezy/tlsifying-your-server). There are four different ways in which you can approach this requirement.
 
 1. Without any type of certificate. 
 :	In which case every time you establish a connection to the mailserver you'll have to tell the client that you trust the server.

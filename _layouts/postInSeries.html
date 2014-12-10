@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-<div class="post">
-    <h2 class="in_series">{{ page.cabecera }}</h2>
+<div class="post" itemscope itemtype="http://schema.org/Article">
+    <h2 class="in_series" itemprop="name" >{{ page.cabecera }}</h2>
 
 <ul class="post-list_aside">
  
@@ -10,22 +10,22 @@ layout: default
         {% unless post.layout == 'inner_looping_post' %}
         {% if post.url == page.url %}
 
-        <li class="active">
-            <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+        <li class="active" itemprop="articleSection">
+            
 
             
-              <a class="post-link-aside" href="#"><span class="numbered">{{ post.index }}</span> &mdash; {{ post.short-name }}</a>
-              <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+              <a class="post-link-aside" itemprop="url" href="#"><span itemprop="id" class="numbered">{{ post.index }}</span> &mdash; {{ post.short-name }}</a>
+              
 
             
         </li>
         {% else %}
-                <li>
-            <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+        <li itemprop="articleSection">
+            
 
             
-              <a class="post-link-aside" href="{{ post.url | prepend: site.baseurl }}"><span class="numbered">{{ post.index }}</span> &mdash; {{ post.short-name }}</a>
-              <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
+              <a class="post-link-aside" itemprop="url" href="{{ post.url | prepend: site.baseurl }}"><span itemprop="id" class="numbered">{{ post.index }}</span> &mdash; {{ post.short-name }}</a>
+              
 
             
         </li>
@@ -37,7 +37,7 @@ layout: default
     {% endfor %}
 </ul>
 
-  <article class="post-content">
+  <article itemprop="articleBody" class="post-content">
     {{ content }}
   </article>
 

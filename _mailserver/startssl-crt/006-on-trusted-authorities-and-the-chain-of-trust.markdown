@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "006 On trusted Authorities and the Chain of Trust"
 comments: true
 date: 2014-11-27 00:21:16

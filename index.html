@@ -8,20 +8,22 @@ layout: default
 
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
+
+      <li itemscope itemtype="http://schema.org/Article">
         <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
 
 
         <h2>
 
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <a class="post-link" itemprop="url" href="{{ post.url | prepend: site.baseurl }}">
 
             
            {% if post.permalink %}
             <span class="post-series">post series &dash; </span>
-            {% endif %}<span class="title">{{ post.title }}</span>
+            {% endif %}<span class="title" itemprop="name">{{ post.title }}</span>
           </a>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <span itemprop="datePublished" content="{{ post.date | date: "%b %-d, %Y" }}" class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
 
         </h2>
 

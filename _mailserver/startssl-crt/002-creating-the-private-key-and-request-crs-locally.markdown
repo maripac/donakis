@@ -1,5 +1,5 @@
 ---
-layout: post_in_series
+layout: postInSeries
 title: "002 Private Key and Certificate Request"
 comments: true
 date: 2014-11-27 16:21:16

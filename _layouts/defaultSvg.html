@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head_d3.html %}
+
+  <body>
+
+    <div id="outer-wrap">
+      <div id="inner-wrap">
+
+
+      {% include header.html %}
+
+        <div id="main" role="main">
+          <article class="block prose">
+
+            <div class="page-content">
+              <div class="wrapper">
+                {{ content }}
+              </div><!--//.wrapper-->
+            </div><!--//.page-content-->
+
+          </article><!--//.article-->
+        </div> <!--//#main-->
+
+      {% include footer.html %}
+
+      </div><!--//#inner-->
+    </div><!--//#outer-->
+
+    <script src="{{ site.baseurl }}/scripts/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/scripts/main.js"></script>
+    
+
+
+
+  </body>
+</html>
